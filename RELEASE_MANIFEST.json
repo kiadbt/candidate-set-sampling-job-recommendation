@@ -1,6 +1,6 @@
 {
   "manifest_version": 1,
-  "generated_utc": "2026-11-02T08:42:26Z",
+  "generated_utc": "2026-11-02T09:37:07Z",
   "scope": "Publication-safe code, protocols, aggregate results, and SVG figure sources.",
   "excluded": [
     "Raw and processed provider datasets",
@@ -557,13 +557,18 @@
     },
     {
       "path": "README.md",
-      "bytes": 3462,
-      "sha256": "a4a5c2ae66fb134901a8cdbe76d49e9c00fb31a493a528eeb4af686effa9cfd3"
+      "bytes": 3756,
+      "sha256": "f692b2a1b147ba070d27059a7d8852facbc0bbbc16454b786d5274d663ae547a"
+    },
+    {
+      "path": "REPRODUCIBILITY_VERIFICATION.md",
+      "bytes": 3391,
+      "sha256": "19251ff0b1afffd1245327fe746f91d00d5151acd3a48d481cb0776278563778"
     },
     {
       "path": "REPRODUCIBILITY.md",
-      "bytes": 3012,
-      "sha256": "b3262ffa3a5cf221e6365a0388a5c49ad2429f37ba268fb6362078005f9ff644"
+      "bytes": 3603,
+      "sha256": "d57574b6e832a981358c085880f3148926d5cb44eba5ce81cde853585e05043e"
     },
     {
       "path": "requirements-careerbuilder.txt",

@@ -28,15 +28,11 @@ The frozen semantic baseline used `sentence-transformers/all-MiniLM-L6-v2` at mo
 
 Scripts expose command-line help through `python <script> --help`. Paths are intentionally not hard-coded in the public release.
 
-## Code-version qualification
+## Verification of released analysis code
 
-The released core CareerBuilder evaluator and direct-scoring benchmark match their authoritative configuration hashes. The released CareerBuilder analysis, JTH analysis, and cross-dataset synthesis scripts are maintained post-analysis versions because byte-identical copies of the historical analysis scripts were not retained. Consequently:
+The released core CareerBuilder evaluator and direct-scoring benchmark match their authoritative configuration hashes. The current CareerBuilder analysis, JTH analysis, and cross-dataset synthesis scripts were rerun in isolated output directories against retained, integrity-checked analysis inputs. File-level comparisons reproduced all 93 retained aggregate CSVs byte for byte: 25 JTH files, 61 CareerBuilder files across the primary protocol, two temporal-boundary sensitivities, and their combined comparison, and 7 cross-dataset synthesis files. Every numerical comparison had a maximum absolute difference of 0, and every regenerated integrity sentinel reported `passed`.
 
-- the repository supports inspection and prospective rerunning of the disclosed methods;
-- the aggregate outputs are the authoritative evidence package used for reporting; and
-- this release does **not** claim byte-for-byte reconstruction of every archived aggregate from the maintained analysis scripts alone.
-
-This qualification is preferable to presenting a stronger reproducibility claim than the retained evidence supports.
+The exact historical analyzer files were not retained, and the current script hashes differ from those recorded in the original run records. This verification therefore establishes reconstruction of the released aggregate evidence from retained analysis inputs. It does not establish that the current files are the missing historical snapshots, and it is not a clean raw-to-result rebuild from provider data. [REPRODUCIBILITY_VERIFICATION.md](REPRODUCIBILITY_VERIFICATION.md) records the current script hashes, comparison procedure, per-stage file counts, integrity outcomes, and the non-numerical wording differences observed in regenerated CareerBuilder findings notes.
 
 ## Computational boundary
 

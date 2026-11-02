@@ -36,13 +36,9 @@ figures/            editable SVG figure sources
 
 ## Reproducibility boundary
 
-This is not a one-click data reconstruction package. End-to-end reruns require independently authorized access to the source datasets and substantial CPU time and memory. The core CareerBuilder evaluator and direct-scoring benchmark are the versions tied to their authoritative run records. Three analysis scripts were subsequently maintained and do not match the historical hashes recorded when the archived aggregate results were generated:
+This is not a one-click data reconstruction package. End-to-end reruns require independently authorized access to the source datasets and substantial CPU time and memory. The core CareerBuilder evaluator and direct-scoring benchmark match their authoritative run records. The released CareerBuilder analysis, JTH analysis, and cross-dataset synthesis scripts were rerun in isolated output directories against retained, integrity-checked analysis inputs. File-level comparisons reproduced all 93 retained aggregate CSVs byte for byte, with a maximum absolute numerical difference of 0 and passed integrity checks.
 
-- `Code/analyze_careerbuilder_internal_temporal.py`
-- `Code/analyze_jth_strengthened.py`
-- `Code/build_cross_dataset_synthesis.py`
-
-They are therefore released as **post-analysis maintained versions**, not represented as byte-identical historical snapshots. The authoritative aggregate tables and path-free integrity summaries are provided so readers can inspect the evidence reported in the article. See [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for the environment and workflow boundary.
+The exact historical analyzer files were not retained, and the current script hashes differ from those recorded in the original run records. The verification therefore establishes reconstruction of the released aggregate evidence from retained analysis inputs; it does not establish that the current files are the missing historical snapshots or constitute an end-to-end rebuild from provider data. See [REPRODUCIBILITY_VERIFICATION.md](REPRODUCIBILITY_VERIFICATION.md) for the script hashes, comparison scope, and outcomes, and [REPRODUCIBILITY.md](REPRODUCIBILITY.md) for the environment and workflow boundary.
 
 ## Data sources
 
