@@ -1,0 +1,68 @@
+{
+  "selection_rows": 140,
+  "expected_selection_rows": 140,
+  "selection_activity_counts": {
+    "low_2_4": 35,
+    "high_5plus": 35,
+    "cold_0": 35,
+    "one_1": 35
+  },
+  "expected_selection_per_activity": 35,
+  "candidate_integrity_by_window": {
+    "1": {
+      "target_inclusion_failures": 0,
+      "prior_inclusion_failures": 0,
+      "nesting_failures": 0,
+      "determinism_failures": 0
+    },
+    "2": {
+      "target_inclusion_failures": 0,
+      "prior_inclusion_failures": 0,
+      "nesting_failures": 0,
+      "determinism_failures": 0
+    },
+    "3": {
+      "target_inclusion_failures": 0,
+      "prior_inclusion_failures": 0,
+      "nesting_failures": 0,
+      "determinism_failures": 0
+    },
+    "4": {
+      "target_inclusion_failures": 0,
+      "prior_inclusion_failures": 0,
+      "nesting_failures": 0,
+      "determinism_failures": 0
+    },
+    "5": {
+      "target_inclusion_failures": 0,
+      "prior_inclusion_failures": 0,
+      "nesting_failures": 0,
+      "determinism_failures": 0
+    },
+    "6": {
+      "target_inclusion_failures": 0,
+      "prior_inclusion_failures": 0,
+      "nesting_failures": 0,
+      "determinism_failures": 0
+    },
+    "7": {
+      "target_inclusion_failures": 0,
+      "prior_inclusion_failures": 0,
+      "nesting_failures": 0,
+      "determinism_failures": 0
+    }
+  },
+  "diagnostic_rows_excluded_from_primary_summary": true,
+  "primary_repeats": 5,
+  "result_rows": 756,
+  "expected_result_rows": 756,
+  "diagnostic_rows": 126,
+  "primary_rows": 630,
+  "duplicate_result_keys": 0,
+  "pair_invariance_failures": 0,
+  "checksum_invariance_failures": 0,
+  "selection_is_deterministic": true,
+  "same_frozen_candidate_sets_for_all_models": true,
+  "full_scores_freshly_computed": true,
+  "sampled_scores_direct_not_indexed_from_full": true
+}

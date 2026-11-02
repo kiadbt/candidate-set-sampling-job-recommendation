@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="640" viewBox="0 0 720 320" role="img" aria-labelledby="title description">
+  <title id="title">Scope of the logged-catalog comparison</title>
+  <desc id="description">Preference evidence passes through exposure and logging to form the protocol-defined logged catalog. Candidate sampling produces the sampled evaluation. The study compares conclusions from sampled and sampling-free logged-catalog evaluation; correspondence with latent preferences or online behavior is outside scope.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="4.5" markerHeight="4.5" refX="4" refY="2.25" orient="auto" markerUnits="strokeWidth">
+      <path d="M0,0 L4.5,2.25 L0,4.5 Z" fill="#5f6368"/>
+    </marker>
+    <style>
+      text { font-family: Arial, Helvetica, sans-serif; fill: #202124; }
+      .heading { font-size: 15px; font-weight: 700; }
+      .body { font-size: 12px; fill: #374151; }
+      .label { font-size: 11px; fill: #4b5563; }
+      .scope { font-size: 12px; font-weight: 700; fill: #006b4f; }
+      .outside { font-size: 11.5px; fill: #4b5563; }
+    </style>
+  </defs>
+  <rect width="720" height="320" fill="#ffffff"/>
+
+  <rect x="24" y="58" width="184" height="110" rx="12" fill="#f3f4f6" stroke="#6b7280" stroke-width="2"/>
+  <text class="heading" x="116" y="88" text-anchor="middle">Preference evidence (G)</text>
+  <text class="body" x="116" y="119" text-anchor="middle">Latent preferences or densely</text>
+  <text class="body" x="116" y="137" text-anchor="middle">judged relevance (unobserved)</text>
+
+  <rect x="268" y="58" width="184" height="110" rx="12" fill="#eaf4fb" stroke="#0072b2" stroke-width="2"/>
+  <text class="heading" x="360" y="88" text-anchor="middle">Logged catalog (L)</text>
+  <text class="body" x="360" y="119" text-anchor="middle">Protocol-defined, sampling-free</text>
+  <text class="body" x="360" y="137" text-anchor="middle">catalog with observed labels</text>
+
+  <rect x="512" y="58" width="184" height="110" rx="12" fill="#fff1e8" stroke="#d55e00" stroke-width="2"/>
+  <text class="heading" x="604" y="88" text-anchor="middle">Sampled evaluation (S)</text>
+  <text class="body" x="604" y="119" text-anchor="middle">Every relevant item plus</text>
+  <text class="body" x="604" y="137" text-anchor="middle">sampled alternatives</text>
+
+  <line x1="216" y1="113" x2="259" y2="113" stroke="#5f6368" stroke-width="2" marker-end="url(#arrow)"/>
+  <text class="label" x="238" y="44" text-anchor="middle">exposure and logging</text>
+  <line x1="460" y1="113" x2="503" y2="113" stroke="#5f6368" stroke-width="2" marker-end="url(#arrow)"/>
+  <text class="label" x="482" y="44" text-anchor="middle">candidate sampling</text>
+
+  <rect x="268" y="192" width="428" height="54" rx="10" fill="#eaf8f3" stroke="#009e73" stroke-width="2"/>
+  <text class="scope" x="482" y="215" text-anchor="middle">Study scope: Does sampled evaluation reproduce conclusions</text>
+  <text class="scope" x="482" y="233" text-anchor="middle">from the protocol-defined logged-catalog evaluation?</text>
+
+  <rect x="24" y="267" width="672" height="40" rx="9" fill="#ffffff" stroke="#6b7280" stroke-width="1.5" stroke-dasharray="6 5"/>
+  <text class="outside" x="360" y="284" text-anchor="middle">Outside scope: whether logged or sampled candidates represent</text>
+  <text class="outside" x="360" y="299" text-anchor="middle">users’ latent preferences or online behavior</text>
+</svg>

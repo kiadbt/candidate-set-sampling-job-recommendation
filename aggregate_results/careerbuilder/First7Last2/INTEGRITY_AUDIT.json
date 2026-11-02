@@ -1,0 +1,18 @@
+{
+  "target_inclusion_failures": 0,
+  "nesting_failures": 0,
+  "target_count_exceeds_nominal_user_sizes": 40,
+  "determinism_checked": 1,
+  "full_catalog_ranked_candidate_model_pairs": 5275181994,
+  "sampled_ranked_candidate_model_pairs": 6972034260,
+  "content_full_catalog_scored_pairs": 3516836000,
+  "catalog_unique": true,
+  "targets_in_catalog": true,
+  "targets_novel_vs_precut": true,
+  "sample_users_in_population": true,
+  "provider_split_read": false,
+  "size100_k150_rows": 0,
+  "invalid_cutoff_rows": 0,
+  "all_targets_injected_in_sampled_candidates": true,
+  "nested_candidate_failures": 0
+}

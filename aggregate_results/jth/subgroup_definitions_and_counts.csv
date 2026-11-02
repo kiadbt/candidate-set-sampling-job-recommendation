@@ -1,0 +1,12 @@
+subgroup_dimension,subgroup_value,subgroup_order,n_queries,n_candidates,n_dates,source_measure,source_min,source_max
+timestamp-rank quartile,T1,1,2492,2305,97,dense chronological timestamp rank fraction,1.0,97.0
+timestamp-rank quartile,T2,2,2045,1600,97,dense chronological timestamp rank fraction,98.0,194.0
+timestamp-rank quartile,T3,3,1389,1222,97,dense chronological timestamp rank fraction,195.0,291.0
+timestamp-rank quartile,T4,4,2415,1773,98,dense chronological timestamp rank fraction,292.0,389.0
+training-interaction activity,cold_0,1,6611,5150,389,released training interactions per candidate,0.0,0.0
+training-interaction activity,four_plus_4_plus,4,305,197,195,released training interactions per candidate,4.0,12.0
+training-interaction activity,one_1,2,841,637,313,released training interactions per candidate,1.0,1.0
+training-interaction activity,two_to_three_2_3,3,584,414,277,released training interactions per candidate,2.0,3.0
+target popularity,popular_gt2,3,853,745,184,mean released-training popularity of query targets,3.0,212.0
+target popularity,rare_gt0_to_2,2,429,405,132,mean released-training popularity of query targets,0.5,2.0
+target popularity,unseen_0,1,7059,5535,388,mean released-training popularity of query targets,0.0,0.0

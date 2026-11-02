@@ -1,0 +1,584 @@
+{
+  "manifest_version": 1,
+  "generated_utc": "2026-11-02T08:42:26Z",
+  "scope": "Publication-safe code, protocols, aggregate results, and SVG figure sources.",
+  "excluded": [
+    "Raw and processed provider datasets",
+    "Individual-level and per-query outputs",
+    "Cached embeddings and model caches",
+    "Checkpoints, temporary files, archives, and submission documents",
+    "Disclosure-sensitive timestamps and local-path logs"
+  ],
+  "files": [
+    {
+      "path": ".gitignore",
+      "bytes": 171,
+      "sha256": "adc5841360c335cef48d136c4da357155d50edacedac633cc82a3fd8f9bc3b56"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/direct_scoring/BENCHMARK_INTEGRITY_AUDIT.json",
+      "bytes": 1870,
+      "sha256": "751da9d4a12a506b46420487a6a4be03e80b27433f1adc195b8ffce6617965c0"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/direct_scoring/benchmark_primary_summary.csv",
+      "bytes": 3165,
+      "sha256": "fc025f9da9246603b188d807e91f707a304f2d58d3681c23c246b68c4948635e"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/direct_scoring/benchmark_primary_window_summary.csv",
+      "bytes": 21147,
+      "sha256": "fd6672804c3ad6aa80ce4211431fb493bdec5e660e05aff6718a87bcd727763f"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/direct_scoring/benchmark_results.csv",
+      "bytes": 165103,
+      "sha256": "a993e778010521e3eae14d79102a2cc136ade036b70a0ac0a8c403bf416c1dec"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First5Last4/candidate_scale_and_realized_fraction.csv",
+      "bytes": 2198,
+      "sha256": "9e29346e84ea92769e8512eb55224be17560405fcdfddbc732fb9e4afa95fad2"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First5Last4/pooled_estimates.csv",
+      "bytes": 585390,
+      "sha256": "05af4bcb8ffa23f8628ef26bc291d19eb3cd107d33c8c3bde32d015a45c9399b"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First5Last4/publication_table_1_full_catalog.csv",
+      "bytes": 5839,
+      "sha256": "93d59ef2e3fdf9d1e729875273b277e5d57f7c084e2b9a93923e574c198b95a1"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First5Last4/publication_table_2_sampling_bias.csv",
+      "bytes": 60106,
+      "sha256": "ef09499e0115f7bac9867367bf034f8b2828da97040507bf38b78b9ed97ce4aa"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First5Last4/publication_table_3_rank_fidelity.csv",
+      "bytes": 6937,
+      "sha256": "5889099a007868d258461a7f369219f8c5248e132b6f864aac37da974febd7cf"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First5Last4/publication_table_4_contrast_bootstrap.csv",
+      "bytes": 287493,
+      "sha256": "546c87bc4269b6707c46584293dc11543baca94f9ad32d817abd55d836e28711"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First5Last4/publication_table_6_candidate_scale.csv",
+      "bytes": 2198,
+      "sha256": "9e29346e84ea92769e8512eb55224be17560405fcdfddbc732fb9e4afa95fad2"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First5Last4/publication_table_7_full_by_window.csv",
+      "bytes": 32949,
+      "sha256": "91c8d506b775da6430100e05470b8bd66252f5d9ba02d832b7178a80ebed6cd6"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First5Last4/rank_fidelity_summary.csv",
+      "bytes": 21068,
+      "sha256": "57a38a00beaa59c75cefdd3d22ebe2c77fe86147830f71a23497ca256f8abacb"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First5Last4/sampling_bias_seed_summary.csv",
+      "bytes": 699314,
+      "sha256": "627c0ac126f07f6297968adc57f1ca83fe6fd6d041d166dc437240d34ef336fe"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First5Last4/window_variability_equal_window_sensitivity.csv",
+      "bytes": 3019822,
+      "sha256": "2ed63683460b758ec3226fbcac575fb1f9525512c2597a11efed574eef1fbdc1"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First6Last3/candidate_scale_and_realized_fraction.csv",
+      "bytes": 2176,
+      "sha256": "6ec55cb4755df49fe8dcd954a30e6b3c7fd6b8f45f54eca1283423174a2e6859"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First6Last3/pooled_estimates.csv",
+      "bytes": 586974,
+      "sha256": "624fde7c034aabf1ad37188cb07f9d27c53343c35f587522ad5ff5573027059a"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First6Last3/publication_table_1_full_catalog.csv",
+      "bytes": 5846,
+      "sha256": "98c99796fbc141390337d65aa93a877ad6fea63ed789f6ac644eccd64908f3ce"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First6Last3/publication_table_2_sampling_bias.csv",
+      "bytes": 60084,
+      "sha256": "279b040dfd0d39fc0e40c0ff775dfe1f15b8e64d34fb4eb5442c09a6734d5b34"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First6Last3/publication_table_3_rank_fidelity.csv",
+      "bytes": 6860,
+      "sha256": "934277a3f9203bcdcc58d74c3ce551f57ccf260df19a807e57cd349e837228a6"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First6Last3/publication_table_4_contrast_bootstrap.csv",
+      "bytes": 288115,
+      "sha256": "df2a923fbcb2a6ba37784da5fe39101fd51b131608d365cbd28d955e992d15ac"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First6Last3/publication_table_6_candidate_scale.csv",
+      "bytes": 2176,
+      "sha256": "6ec55cb4755df49fe8dcd954a30e6b3c7fd6b8f45f54eca1283423174a2e6859"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First6Last3/publication_table_7_full_by_window.csv",
+      "bytes": 33523,
+      "sha256": "3b09cc91fbea5a854e5b69fcea515f263492ddd7a63b429e66d2a61e278d21f8"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First6Last3/rank_fidelity_summary.csv",
+      "bytes": 21061,
+      "sha256": "df32d98b57ac0dd5fe9fbf20dd6ccdc5a97ff3bd33447436d7519d0272c71fe1"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First6Last3/sampling_bias_seed_summary.csv",
+      "bytes": 699819,
+      "sha256": "158228ae013853d91297913c2ced9a989e5b81b0edbd2929d4cdbd1dc2676345"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First6Last3/window_variability_equal_window_sensitivity.csv",
+      "bytes": 3012356,
+      "sha256": "8823cebb0a13f250c2690cf2b133b96034cbef854f2b19a4d15c15a06a3c9bb3"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First7Last2/aggregate_metrics.csv",
+      "bytes": 2577912,
+      "sha256": "6654612aa22e24048e75572d777747be0be5275016f1fde96b9c394b02d639ca"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First7Last2/candidate_scale_and_realized_fraction.csv",
+      "bytes": 2192,
+      "sha256": "3c89bd544d4c32402cc074baf0621f6adfcb16f95db05ffaf9f3b0a510a73c8b"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First7Last2/INTEGRITY_AUDIT.json",
+      "bytes": 622,
+      "sha256": "ffef1748b7e56ab8a65288635c0d8e0856bba142ea6ec265debce8f837a471b0"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First7Last2/pooled_estimates.csv",
+      "bytes": 583991,
+      "sha256": "c8d7607465c5f8f839c64ad0237965d7db44e0f298e900f2b1065a780841563f"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First7Last2/publication_table_1_full_catalog.csv",
+      "bytes": 6041,
+      "sha256": "3b5752a52939911b656ab9d88f121a22ed2c833022fa8ccae043a2c2e29fde8c"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First7Last2/publication_table_2_sampling_bias.csv",
+      "bytes": 60750,
+      "sha256": "e98833a0714df277daa045c346ea976801de3ca7dc31a37d3fb770a6de001ba0"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First7Last2/publication_table_3_rank_fidelity.csv",
+      "bytes": 6863,
+      "sha256": "5f7a3550ba53bc3266386d6df208bdc396afaf8fcca68796e75794c6e605dfb8"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First7Last2/publication_table_4_contrast_bootstrap.csv",
+      "bytes": 287413,
+      "sha256": "33f8b8c9a948defb77c86e737d1419f0077de9d162b71186393490328c85bfff"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First7Last2/publication_table_5_subgroups.csv",
+      "bytes": 112491,
+      "sha256": "eb165cb4c1405c09cf8e813cb47698bce73c1957eb58b5e0f49cc0e0a8e1a155"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First7Last2/publication_table_5b_subgroup_counts.csv",
+      "bytes": 1108,
+      "sha256": "0d6f9d0d0d2e635a32e1d1b7f8911551b66d809164e45cc6967836388f5ab2b7"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First7Last2/publication_table_6_candidate_scale.csv",
+      "bytes": 2192,
+      "sha256": "3c89bd544d4c32402cc074baf0621f6adfcb16f95db05ffaf9f3b0a510a73c8b"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First7Last2/publication_table_7_full_by_window.csv",
+      "bytes": 34331,
+      "sha256": "626ebe269d9413bf334b3cf3823b79274e8fb173a363ac8fd90842f1303795fa"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First7Last2/publication_table_9_subgroup_evaluation_bias.csv",
+      "bytes": 472021,
+      "sha256": "5959ca9d3be36f58fdf8de7820f9b692bcb093881360021a74bbe4fde15b46d4"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First7Last2/rank_fidelity_summary.csv",
+      "bytes": 20359,
+      "sha256": "a439737e43d35863df1aabfae59a89fadef098fbd7337cf53adb25928da8f528"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First7Last2/sampling_bias_seed_summary.csv",
+      "bytes": 704629,
+      "sha256": "439da2a72d2200b1d1873ec99a3ed39601c5cc810129cb6507a73fe349732003"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First7Last2/subgroup_definitions_and_counts.csv",
+      "bytes": 1108,
+      "sha256": "0d6f9d0d0d2e635a32e1d1b7f8911551b66d809164e45cc6967836388f5ab2b7"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/First7Last2/window_variability_equal_window_sensitivity.csv",
+      "bytes": 3029822,
+      "sha256": "ea1fd5e3d8ee0eb1ee96fb5dace8fea41a574b949217d67ce1bcecaef5ecb843"
+    },
+    {
+      "path": "aggregate_results/cross_dataset/cross_dataset_classification_matrix.csv",
+      "bytes": 215874,
+      "sha256": "8556ee85d7e7e8d48e41cf7fa1268efd11906b5aea81f4a5e9585b68c5d68332"
+    },
+    {
+      "path": "aggregate_results/cross_dataset/table_1_cross_dataset_candidate_scale.csv",
+      "bytes": 2169,
+      "sha256": "89c90677e2fe1dbbf0e45caa2cc963264087d0dd33d59c42544bd4082d2a3bce"
+    },
+    {
+      "path": "aggregate_results/cross_dataset/table_2_cross_dataset_metric_bias.csv",
+      "bytes": 104872,
+      "sha256": "c8a0fd5e499b4e50b25326e2f8946e62a03620c83493d515f704b687672147a1"
+    },
+    {
+      "path": "aggregate_results/cross_dataset/table_3_cross_dataset_rank_fidelity.csv",
+      "bytes": 9099,
+      "sha256": "872d0e4d975a51362be774d74b1efbcf1995c41747204ddb49cc90853de07fe3"
+    },
+    {
+      "path": "aggregate_results/cross_dataset/table_4_cross_dataset_bm25_contrasts.csv",
+      "bytes": 93744,
+      "sha256": "546518008bcd75783ab5dd36ea529e294dded4248838677a4dbee8f21995e6ac"
+    },
+    {
+      "path": "aggregate_results/cross_dataset/table_5_cross_dataset_temporal_subgroup_boundary.csv",
+      "bytes": 981836,
+      "sha256": "16aaacd259591f35ee97c1ed8ee3831a05e8b80112b591d88d43372fde652e89"
+    },
+    {
+      "path": "aggregate_results/cross_dataset/table_6_cross_dataset_compute_boundary.csv",
+      "bytes": 8946,
+      "sha256": "4e0821f5112bf8048f3f45e61e5de130a43ee98133ea2edd8c906670e5bc638e"
+    },
+    {
+      "path": "aggregate_results/jth/catalog_size_and_candidate_fraction.csv",
+      "bytes": 2115,
+      "sha256": "4b10ec5213d9872879de662155f14dd7a26e3e28e460b62d983491f05dd25972"
+    },
+    {
+      "path": "aggregate_results/jth/primary_contrasts_cluster_summary.csv",
+      "bytes": 11722,
+      "sha256": "5b7c285633f1f6a117c53997389073215450c412b903ee22bbca3e8fe5c9d21a"
+    },
+    {
+      "path": "aggregate_results/jth/publication_table_1_full_catalog_k20.csv",
+      "bytes": 1143,
+      "sha256": "e2219daee15fab27eb1ddcc1d0e6bedc11e55b3b49a1104bad52eeec1c9f772e"
+    },
+    {
+      "path": "aggregate_results/jth/publication_table_2_cluster_sensitivity.csv",
+      "bytes": 11722,
+      "sha256": "d36e869a6f31a06478919962018db07838f76d2a356c17dcea5743fc80086e69"
+    },
+    {
+      "path": "aggregate_results/jth/publication_table_3_known_item_sensitivity_k20.csv",
+      "bytes": 14871,
+      "sha256": "631e6cc46339c385eefaa12ee334c245fed3c5d964c01310efe6beaad1020e85"
+    },
+    {
+      "path": "aggregate_results/jth/publication_table_4_rank_fidelity_k20.csv",
+      "bytes": 2055,
+      "sha256": "268064498b19818190b526c1efa166882c3358b792fea6d622fd279fcb00e49a"
+    },
+    {
+      "path": "aggregate_results/jth/publication_table_5_timestamp_rank_quartiles.csv",
+      "bytes": 8723,
+      "sha256": "92a0b5c70330ca3bbe2bc221bf71d675f713272a72a0143f98b49daadeec88c1"
+    },
+    {
+      "path": "aggregate_results/jth/publication_table_6_subgroup_full_catalog_hitrate.csv",
+      "bytes": 5384,
+      "sha256": "a7c758d1ec7f1fa186257ddd2c09ae6fcdd60f2973b690c5b8a419e4747afac7"
+    },
+    {
+      "path": "aggregate_results/jth/publication_table_7_candidate_scale.csv",
+      "bytes": 2115,
+      "sha256": "4b10ec5213d9872879de662155f14dd7a26e3e28e460b62d983491f05dd25972"
+    },
+    {
+      "path": "aggregate_results/jth/publication_table_8_evaluation_bias_across_sizes.csv",
+      "bytes": 43264,
+      "sha256": "7235b19aacb3a0da9982d8405fb991ea6b270de0f0adc2ae1c9a9ee2c9a229a2"
+    },
+    {
+      "path": "aggregate_results/jth/publication_table_9_subgroup_evaluation_bias.csv",
+      "bytes": 501937,
+      "sha256": "730059955563acf178cd7ed03d0a17c4fd5bf8c9810b44445865c6030c6d14ea"
+    },
+    {
+      "path": "aggregate_results/jth/rank_fidelity_metric_summary_k20.csv",
+      "bytes": 4506,
+      "sha256": "86a868216cdd2d5db50be4f46af675cf5b43cb019cab926614b4e88fd6b2e74c"
+    },
+    {
+      "path": "aggregate_results/jth/rank_fidelity_summary_k20.csv",
+      "bytes": 2055,
+      "sha256": "268064498b19818190b526c1efa166882c3358b792fea6d622fd279fcb00e49a"
+    },
+    {
+      "path": "aggregate_results/jth/subgroup_definitions_and_counts.csv",
+      "bytes": 1267,
+      "sha256": "e5fae613db850c55b1b5041731ccdbb40b2782b85d807d55cb58c763b2fb0668"
+    },
+    {
+      "path": "aggregate_results/jth/subgroup_full_catalog_cluster_bootstrap.csv",
+      "bytes": 70634,
+      "sha256": "0f6926c2ab0275bb47a6de6d4809c2f4a51c2f23388c8c5cdb25a7c22d7cab6d"
+    },
+    {
+      "path": "aggregate_results/jth/temporal_rank_quartile_summary_k20.csv",
+      "bytes": 217545,
+      "sha256": "d7f67a37276412f745554e24814ec90816e57945a635a74c1aaf467504f06ee1"
+    },
+    {
+      "path": "CITATION.cff",
+      "bytes": 1145,
+      "sha256": "e288208b8cf092ca5fe5442fe2ed9c9755d8df72da50ac07a085befc261a7d51"
+    },
+    {
+      "path": "Code/analyze_careerbuilder_internal_temporal.py",
+      "bytes": 131041,
+      "sha256": "126ff12f14a94f708e7acdb8a0e245f169477ce2767ace8f9acccd157aa3011e"
+    },
+    {
+      "path": "Code/analyze_jth_strengthened.py",
+      "bytes": 110436,
+      "sha256": "5628e3d35111820f3918808f6c68ebaa44dac44dfd782e5a8c0a92d2951e5b0f"
+    },
+    {
+      "path": "Code/audit_careerbuilder_internal_temporal_target_popularity.py",
+      "bytes": 7351,
+      "sha256": "683b8dad7278cf1cced39748bf78631abefa920b8cc975d3983f077915e282c9"
+    },
+    {
+      "path": "Code/build_cross_dataset_synthesis.py",
+      "bytes": 63081,
+      "sha256": "63ebbe540b2a0d8c2ec42130b8737d1d1b633961d9396819513f5846896c99cf"
+    },
+    {
+      "path": "Code/careerbuilder_internal_temporal_direct_scoring_benchmark.py",
+      "bytes": 25312,
+      "sha256": "f0adf926e1e8303605b1532d95469446c591ede737d16a041fc2d4e846597cde"
+    },
+    {
+      "path": "Code/careerbuilder_internal_temporal_evaluation.py",
+      "bytes": 60432,
+      "sha256": "c2c38c0b356896619853259ed2b2f9b29f2b651ff386002d9399734239c7e756"
+    },
+    {
+      "path": "Code/jth_known_item_sensitivity.py",
+      "bytes": 24879,
+      "sha256": "ddfa4f300a601a5d78a7f744af37ef088fc04bbfcfdccb78d29ab13138ff45d1"
+    },
+    {
+      "path": "Code/jth_sampling_evaluation.py",
+      "bytes": 17499,
+      "sha256": "a724ce898fee30c1f251fddf8cac650ff9df04e2d265c43de286f7e0ceb6c77a"
+    },
+    {
+      "path": "Code/multiwindow_cbf_evaluation.py",
+      "bytes": 12245,
+      "sha256": "5ecc6b08af78984b58f8bf43ebc05d35c542998dba6346fe1566a3608c9250cd"
+    },
+    {
+      "path": "Code/prepare_careerbuilder_internal_temporal.py",
+      "bytes": 23141,
+      "sha256": "bf9798e8cd8ce276b0d508ff6b004198befe707da4a7e2c5734607f53d369ada"
+    },
+    {
+      "path": "Code/preprocess_raw_careerbuilder.py",
+      "bytes": 6890,
+      "sha256": "d31dc1b424eb9f2b8b5f66b4b6867f879177d984198ad3461cb807ddcfdcbb5f"
+    },
+    {
+      "path": "Code/test_careerbuilder_internal_temporal_cutoffs.py",
+      "bytes": 3894,
+      "sha256": "6bf71b40a656c4001fdb4536de1db8a1b5c06d24ff4899bbc676411c7d4989c4"
+    },
+    {
+      "path": "Code/test_cross_dataset_synthesis.py",
+      "bytes": 11828,
+      "sha256": "91aa8925a0c9477db393643c0deb475df44d7e1b078821f7d0c7dd6b6f898146"
+    },
+    {
+      "path": "DATA.md",
+      "bytes": 1983,
+      "sha256": "6aba590004abcccfbdfaf4ede9e20b0920a7e585c5112ed5be13e85fb3de47f0"
+    },
+    {
+      "path": "figures/main/figure_1_cross_dataset_metric_bias.svg",
+      "bytes": 700848,
+      "sha256": "450c1d3e3cbeed3e7cda1fb4f0a3a81df5e234f88442083b0ffab8a92eeb0a0d"
+    },
+    {
+      "path": "figures/main/figure_2_cross_dataset_rank_winner_fidelity.svg",
+      "bytes": 228337,
+      "sha256": "29f48d099e25d25dcf23cb834cba3a023203442890a1560dde52a67d410d9824"
+    },
+    {
+      "path": "figures/main/figure_3_compute_evidence_boundary.svg",
+      "bytes": 182866,
+      "sha256": "7b328ef478f13a1dc87ae8fa7beab88a1f01681850c01a2f93b2761b55641be7"
+    },
+    {
+      "path": "figures/main/figure_concept_gls_evaluation_scope.svg",
+      "bytes": 3447,
+      "sha256": "0ebf17b04e1b4f3975f1f5b179c620621715a3a412c0b53c34aae82a9f98a3f4"
+    },
+    {
+      "path": "figures/main/figure_controlled_audit_workflow.svg",
+      "bytes": 5551,
+      "sha256": "abb351a600a54eff26585f096aa6f69d4aa247e71b5a9dadd12791606d062fca"
+    },
+    {
+      "path": "figures/main/figure_paired_decision_contrasts.svg",
+      "bytes": 14012,
+      "sha256": "0f4e86fa67dc81c81f0898215bb8db572b130374488f746bda4568d5219dd0a4"
+    },
+    {
+      "path": "figures/supplement/careerbuilder_figure_3_seven_window_full_catalog.svg",
+      "bytes": 59527,
+      "sha256": "340b26aec8e9cbf86947fda32594a2212d1612d37551859fd0dc4e768f411e8d"
+    },
+    {
+      "path": "figures/supplement/careerbuilder_figure_4_contrast_distortion.svg",
+      "bytes": 109578,
+      "sha256": "60101a07409959e1e5eab4a3ee79d0b6691cec9c9229127cd4c9df80daf82b03"
+    },
+    {
+      "path": "figures/supplement/careerbuilder_figure_5_subgroup_effectiveness.svg",
+      "bytes": 86971,
+      "sha256": "7b5b10e7ebf94f7d5baa56cd4f19a14ab4a001add9a959317624f09dd5d11b11"
+    },
+    {
+      "path": "figures/supplement/careerbuilder_figure_6_subgroup_evaluation_bias.svg",
+      "bytes": 150752,
+      "sha256": "f92bb8bec41ff6f67523e7f253957b153b4fab92ce38678d33e4ad2f3c7e1b2c"
+    },
+    {
+      "path": "figures/supplement/jth_figure_1_cluster_sensitivity_hitrate.svg",
+      "bytes": 72945,
+      "sha256": "105d2ec6914ce0cb7b494decdef19065445dbe4f6dc154b32d83aae3f2cb15bd"
+    },
+    {
+      "path": "figures/supplement/jth_figure_2_known_item_hitrate.svg",
+      "bytes": 75881,
+      "sha256": "439f4c1b506b9b5d1b4dfac366c3bbce022dd9a4c399e9807c29acd83818a7dc"
+    },
+    {
+      "path": "figures/supplement/jth_figure_5_subgroup_effectiveness_corrected.svg",
+      "bytes": 66387,
+      "sha256": "9f7dcd8ecbc1aef488befc6740c2cf1f159b65949154921fb6be343620275898"
+    },
+    {
+      "path": "figures/supplement/jth_figure_7_subgroup_evaluation_bias.svg",
+      "bytes": 82777,
+      "sha256": "cf381493908a5eb5d888f1d256cbeae4f4b7e62a5c0bec950f97d721436894c6"
+    },
+    {
+      "path": "protocols/careerbuilder/First5Last4/FIGURE_SOURCE_MAP.md",
+      "bytes": 1107,
+      "sha256": "f11c1fb367abc6443a7cf3a49a67bdca5bfeeb5fb6078dbef1b8e1f290528331"
+    },
+    {
+      "path": "protocols/careerbuilder/First5Last4/STUDY_PROTOCOL.md",
+      "bytes": 3471,
+      "sha256": "d68cec22b3970a7521b85bdfa1a93b68faa30b9372f82e76b385b43f3d6237af"
+    },
+    {
+      "path": "protocols/careerbuilder/First5Last4/VERIFIED_FINDINGS.md",
+      "bytes": 1777,
+      "sha256": "d3b81bea1ba295a36f6c31676a29627a8a1f800a3c965db680d4881824840285"
+    },
+    {
+      "path": "protocols/careerbuilder/First6Last3/FIGURE_SOURCE_MAP.md",
+      "bytes": 1107,
+      "sha256": "f11c1fb367abc6443a7cf3a49a67bdca5bfeeb5fb6078dbef1b8e1f290528331"
+    },
+    {
+      "path": "protocols/careerbuilder/First6Last3/STUDY_PROTOCOL.md",
+      "bytes": 3471,
+      "sha256": "b443bc83962d7309195ee7f9989e90e9717d1e82c52e143d291fe56a5cef4e71"
+    },
+    {
+      "path": "protocols/careerbuilder/First6Last3/VERIFIED_FINDINGS.md",
+      "bytes": 1777,
+      "sha256": "4c3e6e8cc94da6ad278eaefb9212fd4dd14e4951eb4265e1ff1d3d91631f6859"
+    },
+    {
+      "path": "protocols/careerbuilder/First7Last2/FIGURE_SOURCE_MAP.md",
+      "bytes": 1363,
+      "sha256": "f15603d786227acd22b57f13d674683725fc51320aa83318451d92ec562dd0c5"
+    },
+    {
+      "path": "protocols/careerbuilder/First7Last2/STUDY_PROTOCOL.md",
+      "bytes": 3473,
+      "sha256": "0f05efdfcc63bb9862960af8052aaa24b690bf06fc95a51732bd9a4a82072139"
+    },
+    {
+      "path": "protocols/careerbuilder/First7Last2/VERIFIED_FINDINGS.md",
+      "bytes": 1829,
+      "sha256": "b8145c60d147d2e3955273fe2004d2361e3e1e191d43485220058c2155669056"
+    },
+    {
+      "path": "protocols/cross_dataset/STUDY_PROTOCOL.md",
+      "bytes": 2622,
+      "sha256": "3999baff8a5aac5521512ad9d96bfe216e068d7971e81115853646648d244327"
+    },
+    {
+      "path": "protocols/jth/FIGURE_SOURCE_MAP.md",
+      "bytes": 2426,
+      "sha256": "0cb7953610bc315f0ab540ce0db289d2edd6ca1d0f41d2aa86603af78d383781"
+    },
+    {
+      "path": "protocols/jth/STUDY_PROTOCOL.md",
+      "bytes": 5449,
+      "sha256": "3401b6a14302f3ca4de6bf789864f7cb6b22d07d622d0054b86ed0793a3fce77"
+    },
+    {
+      "path": "protocols/jth/VERIFIED_FINDINGS.md",
+      "bytes": 6897,
+      "sha256": "e474f753bf339c1cd840ba4eafc7230367fb3745012bebc7f1aeeb699f31a080"
+    },
+    {
+      "path": "README.md",
+      "bytes": 3462,
+      "sha256": "a4a5c2ae66fb134901a8cdbe76d49e9c00fb31a493a528eeb4af686effa9cfd3"
+    },
+    {
+      "path": "REPRODUCIBILITY.md",
+      "bytes": 3012,
+      "sha256": "b3262ffa3a5cf221e6365a0388a5c49ad2429f37ba268fb6362078005f9ff644"
+    },
+    {
+      "path": "requirements-careerbuilder.txt",
+      "bytes": 125,
+      "sha256": "1b1fdfa2f7a1b43e54bb5fad74a2388ac23253be314984a53683799d5401cc45"
+    },
+    {
+      "path": "requirements-jth-analysis.txt",
+      "bytes": 61,
+      "sha256": "d98736aaa682f2d47b9ea859d4e4cb509292211bcb431759b2abacfa3902cdcc"
+    },
+    {
+      "path": "RIGHTS.md",
+      "bytes": 1403,
+      "sha256": "f4fd6569435fc8b3dbfca1828c261ac5b370869c3d4924e4afa917eed477ca00"
+    }
+  ]
+}

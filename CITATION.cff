@@ -1,0 +1,34 @@
+cff-version: 1.2.0
+message: "Please cite the associated article and identify the accessed repository commit."
+title: "Candidate-Set Sampling in Temporal Job Recommendation: Reproducibility Materials"
+type: software
+version: 0.1.0
+date-released: 2026-11-02
+repository-code: "https://github.com/kiadbt/candidate-set-sampling-job-recommendation"
+authors:
+  - family-names: "Yarima"
+    given-names: "Kamaluddeen Ibrahim"
+  - family-names: "Imam"
+    given-names: "Abdullahi Abubakar"
+  - family-names: "Apong"
+    given-names: "Rosyzie Anna"
+  - family-names: "Ilyasu"
+    given-names: "Nazir Muhammad"
+  - family-names: "Ali"
+    given-names: "Usman"
+preferred-citation:
+  type: article
+  title: "Candidate-Set Sampling in Temporal Job Recommendation: Cross-Dataset Evidence on Model-Selection Agreement"
+  year: 2026
+  authors:
+    - family-names: "Yarima"
+      given-names: "Kamaluddeen Ibrahim"
+    - family-names: "Imam"
+      given-names: "Abdullahi Abubakar"
+    - family-names: "Apong"
+      given-names: "Rosyzie Anna"
+    - family-names: "Ilyasu"
+      given-names: "Nazir Muhammad"
+    - family-names: "Ali"
+      given-names: "Usman"
+

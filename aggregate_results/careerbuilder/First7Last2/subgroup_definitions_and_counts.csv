@@ -1,0 +1,8 @@
+run_label,protocol,subgroup_dimension,subgroup_value,subgroup_order,n_queries,n_windows,population_weight_sum,interpretation
+First7Last2,First7Last2,training-interaction activity,cold_0,1,4654,7,49902.678000000014,descriptive heterogeneity only
+First7Last2,First7Last2,training-interaction activity,one_1,2,755,7,8094.168000000001,descriptive heterogeneity only
+First7Last2,First7Last2,training-interaction activity,low_2_4,3,875,7,9483.588,descriptive heterogeneity only
+First7Last2,First7Last2,training-interaction activity,high_5plus,4,716,7,7910.566000000001,descriptive heterogeneity only
+First7Last2,First7Last2,query-mean target pre-cutoff popularity,mean_unseen_0,1,1087,7,11363.516000000001,descriptive heterogeneity only; target popularity is outcome-derived
+First7Last2,First7Last2,query-mean target pre-cutoff popularity,mean_positive_le2,2,1587,7,16925.667,descriptive heterogeneity only; target popularity is outcome-derived
+First7Last2,First7Last2,query-mean target pre-cutoff popularity,mean_gt2,3,4326,7,47101.817,descriptive heterogeneity only; target popularity is outcome-derived
