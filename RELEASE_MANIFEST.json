@@ -1,6 +1,6 @@
 {
   "manifest_version": 1,
-  "generated_utc": "2026-11-02T09:37:07Z",
+  "generated_utc": "2026-11-04T03:53:38Z",
   "scope": "Publication-safe code, protocols, aggregate results, and SVG figure sources.",
   "excluded": [
     "Raw and processed provider datasets",
@@ -346,6 +346,66 @@
       "sha256": "d7f67a37276412f745554e24814ec90816e57945a635a74c1aaf467504f06ee1"
     },
     {
+      "path": "aggregate_results/post_review/decision_calibration_minimums.csv",
+      "bytes": 10490,
+      "sha256": "19e749b4c1e6ba28d0b18dbcc4c788fe17c5b57ae6bdf439a40e6e1b0e89fde6"
+    },
+    {
+      "path": "aggregate_results/post_review/decision_calibration_threshold_sensitivity.csv",
+      "bytes": 152960,
+      "sha256": "586560dfdcd94002413a0454aa032f01b1197339d03913b3734f86a32386bf80"
+    },
+    {
+      "path": "aggregate_results/post_review/decision_calibration.csv",
+      "bytes": 11349,
+      "sha256": "e4ab6edd87e302107241c4710990030a422596ab5daef75ec06f97b5437f2a28"
+    },
+    {
+      "path": "aggregate_results/post_review/matched_fraction_descriptive.csv",
+      "bytes": 2028,
+      "sha256": "79e6f17ca96cf06899609ad3d42189d6d78c59d9b990ee10578b3ee3aa14d168"
+    },
+    {
+      "path": "aggregate_results/post_review/POST_REVIEW_INTEGRITY_SUMMARY.json",
+      "bytes": 3008,
+      "sha256": "7cc8b2c988aaf582966a2c5086f40e4bf96e3c8a007c5bb69e2284c64ead6d8d"
+    },
+    {
+      "path": "aggregate_results/post_review/relevance_set_distribution.csv",
+      "bytes": 382,
+      "sha256": "e19c90b7449ae88c65ed691defba38f56a206b3bbb6271c64ee62a6ca0f71252"
+    },
+    {
+      "path": "aggregate_results/post_review/sampler_paired_contrasts.csv",
+      "bytes": 17525,
+      "sha256": "f9cf6e1152ab0c5f00ef225b0cd2d2ebb7a7840abde176f5f93bdd3ebf55f941"
+    },
+    {
+      "path": "aggregate_results/post_review/seed_decision_detail.csv",
+      "bytes": 33162,
+      "sha256": "e81eaa27c5c8462c9c1e90654f6a4e18abe41b77ffb32204bea3aedc23501a59"
+    },
+    {
+      "path": "aggregate_results/post_review/seed_decision_stability.csv",
+      "bytes": 3833,
+      "sha256": "309f3c4d5b24ad2acba11d37404fb20e3621c0624c2e28df74127d7b1b11e47b"
+    },
+    {
+      "path": "aggregate_results/post_review/timing_robust_summary.csv",
+      "bytes": 6196,
+      "sha256": "f8359afc2c0c9f8c97d6449aa3778118c5765544df6517cb87fc23b98f90c788"
+    },
+    {
+      "path": "aggregate_results/post_review/top_set_equivalence_sensitivity_detail.csv",
+      "bytes": 134622,
+      "sha256": "5022a32a3ccf6e55dbf312c283e98de8f97dcc1ad21e2247dfa993911552b156"
+    },
+    {
+      "path": "aggregate_results/post_review/top_set_equivalence_sensitivity_summary.csv",
+      "bytes": 21025,
+      "sha256": "cdc5b4e748726f8c0fcee91b8e84797a3eb03ae5619ebb480c501d8d913ef4d1"
+    },
+    {
       "path": "CITATION.cff",
       "bytes": 1145,
       "sha256": "e288208b8cf092ca5fe5442fe2ed9c9755d8df72da50ac07a085befc261a7d51"
@@ -359,6 +419,11 @@
       "path": "Code/analyze_jth_strengthened.py",
       "bytes": 110436,
       "sha256": "5628e3d35111820f3918808f6c68ebaa44dac44dfd782e5a8c0a92d2951e5b0f"
+    },
+    {
+      "path": "Code/analyze_peer_review_revision.py",
+      "bytes": 50858,
+      "sha256": "6a661b2ded5426cc9bd5d332ca11486438631793f8bfdfa838c2356eeef1af64"
     },
     {
       "path": "Code/audit_careerbuilder_internal_temporal_target_popularity.py",
@@ -556,19 +621,24 @@
       "sha256": "e474f753bf339c1cd840ba4eafc7230367fb3745012bebc7f1aeeb699f31a080"
     },
     {
+      "path": "protocols/post_review/STUDY_PROTOCOL.md",
+      "bytes": 2810,
+      "sha256": "daa99a5cc646176b6561d3a8b6afa20c59c5f8c596b0c2a19b0e769ce844a43c"
+    },
+    {
       "path": "README.md",
-      "bytes": 3756,
-      "sha256": "f692b2a1b147ba070d27059a7d8852facbc0bbbc16454b786d5274d663ae547a"
+      "bytes": 5073,
+      "sha256": "654ef538348485c1afeae511adecf9eeb7bfd5df426930fe243cf92bc44c9999"
     },
     {
       "path": "REPRODUCIBILITY_VERIFICATION.md",
-      "bytes": 3391,
-      "sha256": "19251ff0b1afffd1245327fe746f91d00d5151acd3a48d481cb0776278563778"
+      "bytes": 4736,
+      "sha256": "c6eaa435f36cec3a2b4a6a8046236cf77f51dcd28baf72e7e995454b43c1d89c"
     },
     {
       "path": "REPRODUCIBILITY.md",
-      "bytes": 3603,
-      "sha256": "d57574b6e832a981358c085880f3148926d5cb44eba5ce81cde853585e05043e"
+      "bytes": 5338,
+      "sha256": "793f7b6ae6ea77b36790670ad72d64dd069b17aced42c9ba223d67504c67d6d0"
     },
     {
       "path": "requirements-careerbuilder.txt",

@@ -1,0 +1,73 @@
+dataset,strategy,metric,criterion,minimum_tested_candidate_size,candidate_fraction_mean,status,analysis_status
+CareerBuilder,popularity_weighted,hitrate,winner_all_five_seeds,100.0,0.0008480284001334,reached,post-review illustrative calibration; not preregistered
+CareerBuilder,popularity_weighted,hitrate,pairwise_agreement_at_least_0.90,,,not reached,post-review illustrative calibration; not preregistered
+CareerBuilder,popularity_weighted,hitrate,worst_case_regret_at_most_0.01,100.0,0.0008480284001334,reached,post-review illustrative calibration; not preregistered
+CareerBuilder,popularity_weighted,hitrate,max_principal_bias_at_most_0.02,,,not reached,post-review illustrative calibration; not preregistered
+CareerBuilder,popularity_weighted,hitrate,selection_focused_illustrative,,,not reached,post-review illustrative calibration; not preregistered
+CareerBuilder,popularity_weighted,hitrate,metric_and_selection_illustrative,,,not reached,post-review illustrative calibration; not preregistered
+CareerBuilder,popularity_weighted,map,winner_all_five_seeds,100.0,0.0008480284001334,reached,post-review illustrative calibration; not preregistered
+CareerBuilder,popularity_weighted,map,pairwise_agreement_at_least_0.90,100.0,0.0008480284001334,reached,post-review illustrative calibration; not preregistered
+CareerBuilder,popularity_weighted,map,worst_case_regret_at_most_0.01,100.0,0.0008480284001334,reached,post-review illustrative calibration; not preregistered
+CareerBuilder,popularity_weighted,map,max_principal_bias_at_most_0.02,,,not reached,post-review illustrative calibration; not preregistered
+CareerBuilder,popularity_weighted,map,selection_focused_illustrative,100.0,0.0008480284001334,reached,post-review illustrative calibration; not preregistered
+CareerBuilder,popularity_weighted,map,metric_and_selection_illustrative,,,not reached,post-review illustrative calibration; not preregistered
+CareerBuilder,popularity_weighted,ndcg,winner_all_five_seeds,100.0,0.0008480284001334,reached,post-review illustrative calibration; not preregistered
+CareerBuilder,popularity_weighted,ndcg,pairwise_agreement_at_least_0.90,100.0,0.0008480284001334,reached,post-review illustrative calibration; not preregistered
+CareerBuilder,popularity_weighted,ndcg,worst_case_regret_at_most_0.01,100.0,0.0008480284001334,reached,post-review illustrative calibration; not preregistered
+CareerBuilder,popularity_weighted,ndcg,max_principal_bias_at_most_0.02,,,not reached,post-review illustrative calibration; not preregistered
+CareerBuilder,popularity_weighted,ndcg,selection_focused_illustrative,100.0,0.0008480284001334,reached,post-review illustrative calibration; not preregistered
+CareerBuilder,popularity_weighted,ndcg,metric_and_selection_illustrative,,,not reached,post-review illustrative calibration; not preregistered
+CareerBuilder,uniform,hitrate,winner_all_five_seeds,500.0,0.0042367480961631,reached,post-review illustrative calibration; not preregistered
+CareerBuilder,uniform,hitrate,pairwise_agreement_at_least_0.90,100.0,0.0008480284001334,reached,post-review illustrative calibration; not preregistered
+CareerBuilder,uniform,hitrate,worst_case_regret_at_most_0.01,500.0,0.0042367480961631,reached,post-review illustrative calibration; not preregistered
+CareerBuilder,uniform,hitrate,max_principal_bias_at_most_0.02,,,not reached,post-review illustrative calibration; not preregistered
+CareerBuilder,uniform,hitrate,selection_focused_illustrative,500.0,0.0042367480961631,reached,post-review illustrative calibration; not preregistered
+CareerBuilder,uniform,hitrate,metric_and_selection_illustrative,,,not reached,post-review illustrative calibration; not preregistered
+CareerBuilder,uniform,map,winner_all_five_seeds,100.0,0.0008480284001334,reached,post-review illustrative calibration; not preregistered
+CareerBuilder,uniform,map,pairwise_agreement_at_least_0.90,,,not reached,post-review illustrative calibration; not preregistered
+CareerBuilder,uniform,map,worst_case_regret_at_most_0.01,100.0,0.0008480284001334,reached,post-review illustrative calibration; not preregistered
+CareerBuilder,uniform,map,max_principal_bias_at_most_0.02,,,not reached,post-review illustrative calibration; not preregistered
+CareerBuilder,uniform,map,selection_focused_illustrative,,,not reached,post-review illustrative calibration; not preregistered
+CareerBuilder,uniform,map,metric_and_selection_illustrative,,,not reached,post-review illustrative calibration; not preregistered
+CareerBuilder,uniform,ndcg,winner_all_five_seeds,100.0,0.0008480284001334,reached,post-review illustrative calibration; not preregistered
+CareerBuilder,uniform,ndcg,pairwise_agreement_at_least_0.90,,,not reached,post-review illustrative calibration; not preregistered
+CareerBuilder,uniform,ndcg,worst_case_regret_at_most_0.01,100.0,0.0008480284001334,reached,post-review illustrative calibration; not preregistered
+CareerBuilder,uniform,ndcg,max_principal_bias_at_most_0.02,,,not reached,post-review illustrative calibration; not preregistered
+CareerBuilder,uniform,ndcg,selection_focused_illustrative,,,not reached,post-review illustrative calibration; not preregistered
+CareerBuilder,uniform,ndcg,metric_and_selection_illustrative,,,not reached,post-review illustrative calibration; not preregistered
+JTH,popularity_weighted,hitrate,winner_all_five_seeds,500.0,0.086063163879271,reached,post-review illustrative calibration; not preregistered
+JTH,popularity_weighted,hitrate,pairwise_agreement_at_least_0.90,500.0,0.086063163879271,reached,post-review illustrative calibration; not preregistered
+JTH,popularity_weighted,hitrate,worst_case_regret_at_most_0.01,500.0,0.086063163879271,reached,post-review illustrative calibration; not preregistered
+JTH,popularity_weighted,hitrate,max_principal_bias_at_most_0.02,5000.0,0.86063163879271,reached,post-review illustrative calibration; not preregistered
+JTH,popularity_weighted,hitrate,selection_focused_illustrative,500.0,0.086063163879271,reached,post-review illustrative calibration; not preregistered
+JTH,popularity_weighted,hitrate,metric_and_selection_illustrative,5000.0,0.86063163879271,reached,post-review illustrative calibration; not preregistered
+JTH,popularity_weighted,map,winner_all_five_seeds,100.0,0.0172126327758542,reached,post-review illustrative calibration; not preregistered
+JTH,popularity_weighted,map,pairwise_agreement_at_least_0.90,100.0,0.0172126327758542,reached,post-review illustrative calibration; not preregistered
+JTH,popularity_weighted,map,worst_case_regret_at_most_0.01,100.0,0.0172126327758542,reached,post-review illustrative calibration; not preregistered
+JTH,popularity_weighted,map,max_principal_bias_at_most_0.02,5000.0,0.86063163879271,reached,post-review illustrative calibration; not preregistered
+JTH,popularity_weighted,map,selection_focused_illustrative,100.0,0.0172126327758542,reached,post-review illustrative calibration; not preregistered
+JTH,popularity_weighted,map,metric_and_selection_illustrative,5000.0,0.86063163879271,reached,post-review illustrative calibration; not preregistered
+JTH,popularity_weighted,ndcg,winner_all_five_seeds,100.0,0.0172126327758542,reached,post-review illustrative calibration; not preregistered
+JTH,popularity_weighted,ndcg,pairwise_agreement_at_least_0.90,100.0,0.0172126327758542,reached,post-review illustrative calibration; not preregistered
+JTH,popularity_weighted,ndcg,worst_case_regret_at_most_0.01,100.0,0.0172126327758542,reached,post-review illustrative calibration; not preregistered
+JTH,popularity_weighted,ndcg,max_principal_bias_at_most_0.02,5000.0,0.86063163879271,reached,post-review illustrative calibration; not preregistered
+JTH,popularity_weighted,ndcg,selection_focused_illustrative,100.0,0.0172126327758542,reached,post-review illustrative calibration; not preregistered
+JTH,popularity_weighted,ndcg,metric_and_selection_illustrative,5000.0,0.86063163879271,reached,post-review illustrative calibration; not preregistered
+JTH,uniform,hitrate,winner_all_five_seeds,500.0,0.086063163879271,reached,post-review illustrative calibration; not preregistered
+JTH,uniform,hitrate,pairwise_agreement_at_least_0.90,500.0,0.086063163879271,reached,post-review illustrative calibration; not preregistered
+JTH,uniform,hitrate,worst_case_regret_at_most_0.01,500.0,0.086063163879271,reached,post-review illustrative calibration; not preregistered
+JTH,uniform,hitrate,max_principal_bias_at_most_0.02,5000.0,0.86063163879271,reached,post-review illustrative calibration; not preregistered
+JTH,uniform,hitrate,selection_focused_illustrative,500.0,0.086063163879271,reached,post-review illustrative calibration; not preregistered
+JTH,uniform,hitrate,metric_and_selection_illustrative,5000.0,0.86063163879271,reached,post-review illustrative calibration; not preregistered
+JTH,uniform,map,winner_all_five_seeds,100.0,0.0172126327758542,reached,post-review illustrative calibration; not preregistered
+JTH,uniform,map,pairwise_agreement_at_least_0.90,100.0,0.0172126327758542,reached,post-review illustrative calibration; not preregistered
+JTH,uniform,map,worst_case_regret_at_most_0.01,100.0,0.0172126327758542,reached,post-review illustrative calibration; not preregistered
+JTH,uniform,map,max_principal_bias_at_most_0.02,5000.0,0.86063163879271,reached,post-review illustrative calibration; not preregistered
+JTH,uniform,map,selection_focused_illustrative,100.0,0.0172126327758542,reached,post-review illustrative calibration; not preregistered
+JTH,uniform,map,metric_and_selection_illustrative,5000.0,0.86063163879271,reached,post-review illustrative calibration; not preregistered
+JTH,uniform,ndcg,winner_all_five_seeds,100.0,0.0172126327758542,reached,post-review illustrative calibration; not preregistered
+JTH,uniform,ndcg,pairwise_agreement_at_least_0.90,100.0,0.0172126327758542,reached,post-review illustrative calibration; not preregistered
+JTH,uniform,ndcg,worst_case_regret_at_most_0.01,100.0,0.0172126327758542,reached,post-review illustrative calibration; not preregistered
+JTH,uniform,ndcg,max_principal_bias_at_most_0.02,5000.0,0.86063163879271,reached,post-review illustrative calibration; not preregistered
+JTH,uniform,ndcg,selection_focused_illustrative,100.0,0.0172126327758542,reached,post-review illustrative calibration; not preregistered
+JTH,uniform,ndcg,metric_and_selection_illustrative,5000.0,0.86063163879271,reached,post-review illustrative calibration; not preregistered

@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "analysis_status": "Post-review sensitivity and worked calibration; not preregistered",
+  "no_model_scoring_or_encoding": true,
+  "authoritative_sources_only": true,
+  "publication_safe_boundary": "This summary omits provider records, individual-level data, per-query data, identifiers, local paths, and the internal source-file inventory.",
+  "bootstrap_replicates": 2000,
+  "bootstrap_seeds": {
+    "careerbuilder_window_stratified": 20261130,
+    "jth_date_cluster": 20261131,
+    "jth_candidate_cluster": 20261132,
+    "jth_two_way_candidate_date": 20261133
+  },
+  "source_validation": {
+    "retained_source_hashes_checked": 155,
+    "released_source_inventory": false,
+    "reason_source_inventory_withheld": "The internal inventory names excluded checkpoint and per-query inputs."
+  },
+  "released_files": {
+    "Code/analyze_peer_review_revision.py": "6a661b2ded5426cc9bd5d332ca11486438631793f8bfdfa838c2356eeef1af64",
+    "protocols/post_review/STUDY_PROTOCOL.md": "daa99a5cc646176b6561d3a8b6afa20c59c5f8c596b0c2a19b0e769ce844a43c",
+    "aggregate_results/post_review/decision_calibration_minimums.csv": "19e749b4c1e6ba28d0b18dbcc4c788fe17c5b57ae6bdf439a40e6e1b0e89fde6",
+    "aggregate_results/post_review/decision_calibration_threshold_sensitivity.csv": "586560dfdcd94002413a0454aa032f01b1197339d03913b3734f86a32386bf80",
+    "aggregate_results/post_review/decision_calibration.csv": "e4ab6edd87e302107241c4710990030a422596ab5daef75ec06f97b5437f2a28",
+    "aggregate_results/post_review/matched_fraction_descriptive.csv": "79e6f17ca96cf06899609ad3d42189d6d78c59d9b990ee10578b3ee3aa14d168",
+    "aggregate_results/post_review/relevance_set_distribution.csv": "e19c90b7449ae88c65ed691defba38f56a206b3bbb6271c64ee62a6ca0f71252",
+    "aggregate_results/post_review/sampler_paired_contrasts.csv": "f9cf6e1152ab0c5f00ef225b0cd2d2ebb7a7840abde176f5f93bdd3ebf55f941",
+    "aggregate_results/post_review/seed_decision_detail.csv": "e81eaa27c5c8462c9c1e90654f6a4e18abe41b77ffb32204bea3aedc23501a59",
+    "aggregate_results/post_review/seed_decision_stability.csv": "309f3c4d5b24ad2acba11d37404fb20e3621c0624c2e28df74127d7b1b11e47b",
+    "aggregate_results/post_review/timing_robust_summary.csv": "f8359afc2c0c9f8c97d6449aa3778118c5765544df6517cb87fc23b98f90c788",
+    "aggregate_results/post_review/top_set_equivalence_sensitivity_detail.csv": "5022a32a3ccf6e55dbf312c283e98de8f97dcc1ad21e2247dfa993911552b156",
+    "aggregate_results/post_review/top_set_equivalence_sensitivity_summary.csv": "cdc5b4e748726f8c0fcee91b8e84797a3eb03ae5619ebb480c501d8d913ef4d1"
+  },
+  "runtime": {
+    "analysis_elapsed_seconds": 91.36755479994463,
+    "python": "3.12.14",
+    "implementation": "CPython",
+    "numpy": "2.3.5",
+    "pandas": "3.0.1",
+    "platform": "Windows 11"
+  },
+  "integrity_checks": {
+    "released_csv_outputs": 11,
+    "released_protocol_files": 1,
+    "all_outputs_nonempty": true,
+    "all_required_numeric_fields_finite": true,
+    "output_hashes_verified": true
+  }
+}
