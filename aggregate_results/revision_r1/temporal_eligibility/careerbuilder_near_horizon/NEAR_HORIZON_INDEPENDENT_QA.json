@@ -1,0 +1,126 @@
+{
+  "status": "PASS",
+  "analysis_role": "post_decision_near_horizon_temporal_sensitivity",
+  "queries": 7000,
+  "rows": 336000,
+  "reference_rows_exactly_reproduced": 168000,
+  "positive_metric_deltas": {
+    "precision": 0,
+    "recall": 0,
+    "hit_rate": 0,
+    "ndcg": 0,
+    "mrr": 0,
+    "map": 0
+  },
+  "window_counts": [
+    {
+      "window": 1,
+      "cutoff": "2012-04-08T00:00:00",
+      "evaluation_end": "2012-04-10T00:00:00",
+      "reference_jobs": 194823,
+      "source_future_opening_jobs": 6298,
+      "near_horizon_raw_jobs": 2649,
+      "behavior_inconsistent_excluded": 101,
+      "near_horizon_jobs_added": 2548,
+      "beyond_horizon_jobs_excluded": 3649,
+      "near_horizon_catalog_jobs": 197371
+    },
+    {
+      "window": 2,
+      "cutoff": "2012-04-21T00:00:00",
+      "evaluation_end": "2012-04-23T00:00:00",
+      "reference_jobs": 133012,
+      "source_future_opening_jobs": 4923,
+      "near_horizon_raw_jobs": 1151,
+      "behavior_inconsistent_excluded": 68,
+      "near_horizon_jobs_added": 1083,
+      "beyond_horizon_jobs_excluded": 3772,
+      "near_horizon_catalog_jobs": 134095
+    },
+    {
+      "window": 3,
+      "cutoff": "2012-05-04T00:00:00",
+      "evaluation_end": "2012-05-06T00:00:00",
+      "reference_jobs": 121086,
+      "source_future_opening_jobs": 5480,
+      "near_horizon_raw_jobs": 2670,
+      "behavior_inconsistent_excluded": 78,
+      "near_horizon_jobs_added": 2592,
+      "beyond_horizon_jobs_excluded": 2810,
+      "near_horizon_catalog_jobs": 123678
+    },
+    {
+      "window": 4,
+      "cutoff": "2012-05-17T00:00:00",
+      "evaluation_end": "2012-05-19T00:00:00",
+      "reference_jobs": 124167,
+      "source_future_opening_jobs": 5969,
+      "near_horizon_raw_jobs": 4328,
+      "behavior_inconsistent_excluded": 79,
+      "near_horizon_jobs_added": 4249,
+      "beyond_horizon_jobs_excluded": 1641,
+      "near_horizon_catalog_jobs": 128416
+    },
+    {
+      "window": 5,
+      "cutoff": "2012-05-30T00:00:00",
+      "evaluation_end": "2012-06-01T00:00:00",
+      "reference_jobs": 124674,
+      "source_future_opening_jobs": 6818,
+      "near_horizon_raw_jobs": 4785,
+      "behavior_inconsistent_excluded": 72,
+      "near_horizon_jobs_added": 4713,
+      "beyond_horizon_jobs_excluded": 2033,
+      "near_horizon_catalog_jobs": 129387
+    },
+    {
+      "window": 6,
+      "cutoff": "2012-06-12T00:00:00",
+      "evaluation_end": "2012-06-14T00:00:00",
+      "reference_jobs": 100950,
+      "source_future_opening_jobs": 4388,
+      "near_horizon_raw_jobs": 2310,
+      "behavior_inconsistent_excluded": 348,
+      "near_horizon_jobs_added": 1962,
+      "beyond_horizon_jobs_excluded": 2078,
+      "near_horizon_catalog_jobs": 102912
+    },
+    {
+      "window": 7,
+      "cutoff": "2012-06-25T00:00:00",
+      "evaluation_end": "2012-06-27T00:00:00",
+      "reference_jobs": 80497,
+      "source_future_opening_jobs": 21494,
+      "near_horizon_raw_jobs": 9517,
+      "behavior_inconsistent_excluded": 1769,
+      "near_horizon_jobs_added": 7748,
+      "beyond_horizon_jobs_excluded": 11977,
+      "near_horizon_catalog_jobs": 88245
+    }
+  ],
+  "top_model_agreement_all_comparisons": true,
+  "kendall_tau_min": 0.8666666666666666,
+  "kendall_tau_max": 1.0,
+  "source_run_audit_sha256": "e22005e99b3c2b04466981c8eeb98ca04a3ee9154e70f08f3d4d15efb22df244",
+  "qa_script_sha256": "25caa6e66fd9449455d4f2a56d163413288df6e48222032648682ec1771bd549",
+  "public_outputs": {
+    "careerbuilder_near_horizon_summary.csv": {
+      "bytes": 22500,
+      "sha256": "184c173021c5458beac15fc7e80db42a23219885dfab6d7351613673d793b2d2"
+    },
+    "careerbuilder_near_horizon_model_rankings.csv": {
+      "bytes": 28531,
+      "sha256": "c47918758c5a79c10ed42fb15b9d28302a09dffa777b104b31fd29fdea8cc523"
+    },
+    "careerbuilder_near_horizon_window_counts.csv": {
+      "bytes": 768,
+      "sha256": "b551300f3db22f702ce6c571165b2d6dd373a3089b4061d64898177e84e612ab"
+    },
+    "careerbuilder_near_horizon_k20_design_weighted.csv": {
+      "bytes": 1006,
+      "sha256": "56e19176a4e32411ad317571f2097bf5b93c5a320dfd861b5f0c829a888dd8f0"
+    }
+  },
+  "check_count": 190,
+  "all_checks_passed": true
+}

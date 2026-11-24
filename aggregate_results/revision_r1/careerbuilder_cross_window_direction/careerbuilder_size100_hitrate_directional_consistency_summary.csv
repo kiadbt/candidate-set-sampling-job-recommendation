@@ -1,0 +1,7 @@
+sampling_strategy,requested_candidate_size,estimand,metric,model,model_label,window_seed_cells,strictly_positive_cells,all_window_seed_cells_positive,minimum_inflation,maximum_inflation,mean_inflation,window_means,strictly_positive_window_means,all_window_means_positive,minimum_window_mean_inflation,maximum_window_mean_inflation
+uniform,100,design_weighted_population,HitRate@20,bm25_full_static,Full-text BM25,35,35,True,0.797000000000,0.846000000000,0.823942857143,7,7,True,0.800800000000,0.843400000000
+uniform,100,design_weighted_population,HitRate@20,tfidf_combined_static,Combined-profile/full-text TF-IDF,35,35,True,0.841000000000,0.892000000000,0.863914285714,7,7,True,0.842800000000,0.889400000000
+uniform,100,design_weighted_population,HitRate@20,minilm_title_static,Combined-profile/title MiniLM,35,35,True,0.578000000000,0.663000000000,0.611542857143,7,7,True,0.588600000000,0.658000000000
+popularity_weighted,100,design_weighted_population,HitRate@20,bm25_full_static,Full-text BM25,35,35,True,0.798000000000,0.846000000000,0.823714285714,7,7,True,0.799400000000,0.842800000000
+popularity_weighted,100,design_weighted_population,HitRate@20,tfidf_combined_static,Combined-profile/full-text TF-IDF,35,35,True,0.834000000000,0.892000000000,0.861514285714,7,7,True,0.836200000000,0.889000000000
+popularity_weighted,100,design_weighted_population,HitRate@20,minilm_title_static,Combined-profile/title MiniLM,35,35,True,0.578000000000,0.664000000000,0.610971428571,7,7,True,0.583200000000,0.657800000000

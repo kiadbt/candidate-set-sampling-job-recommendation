@@ -1,0 +1,8 @@
+"window","nominal_shared_catalog_size","audit_users","population_users","audit_target_events","population_target_events","audit_unique_target_jobs","population_unique_target_jobs","audit_target_share_of_5000","audit_non_target_capacity_in_5000","audit_shared_5000_target_complete","population_target_requirement_ratio_to_5000","population_excess_target_jobs_over_5000","population_shared_5000_target_complete"
+"1","5000","1000","15084","3826","58305","3360","25843","0.672","1640","True","5.1686","20843","False"
+"2","5000","1000","6804","2695","18252","2387","11565","0.4774","2613","True","2.313","6565","False"
+"3","5000","1000","8063","3065","24796","2659","13164","0.5318","2341","True","2.6328","8164","False"
+"4","5000","1000","10131","3466","34085","2926","15685","0.5852","2074","True","3.137","10685","False"
+"5","5000","1000","13105","3411","45299","2788","18382","0.5576","2212","True","3.6764","13382","False"
+"6","5000","1000","11227","3436","33026","2889","13834","0.5778","2111","True","2.7668","8834","False"
+"7","5000","1000","10977","2699","28926","2262","12193","0.4524","2738","True","2.4386","7193","False"

@@ -1,0 +1,23 @@
+{
+  "analysis": "Independent QA of CareerBuilder cross-window directional consistency",
+  "checks": {
+    "detail_rows_equal_210": true,
+    "summary_rows_equal_6": true,
+    "detail_keys_unique": true,
+    "six_strategy_model_groups": true,
+    "each_group_has_35_cells": true,
+    "zero_arithmetic_failures": true,
+    "zero_positive_direction_failures": true,
+    "zero_summary_recalculation_failures": true,
+    "primary_audit_passed": true,
+    "output_hashes_match_primary_audit": true
+  },
+  "output_hashes_match_primary_audit": {
+    "careerbuilder_size100_hitrate_directional_consistency_detail.csv": true,
+    "careerbuilder_size100_hitrate_directional_consistency_summary.csv": true
+  },
+  "arithmetic_failures": 0,
+  "positive_direction_failures": 0,
+  "summary_recalculation_failures": [],
+  "pass": true
+}

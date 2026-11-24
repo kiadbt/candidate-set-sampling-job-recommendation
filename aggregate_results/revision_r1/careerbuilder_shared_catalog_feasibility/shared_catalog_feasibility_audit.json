@@ -1,0 +1,253 @@
+{
+  "analysis": "CareerBuilder shared 5,000-job target-completeness feasibility",
+  "generated_utc": "2026-11-24T11:52:28.4446091Z",
+  "project_root": "withheld_local_project_root",
+  "prepared_dataset": "Dataset/CareerBuilder_InternalTemporal_v1/First7Last2",
+  "nominal_shared_catalog_size": 5000,
+  "design": {
+    "audit": "Unique observed future target JobIDs among the 1,000-user audit cohort in each provider-defined window.",
+    "population": "Unique observed future target JobIDs among the full eligible population in each provider-defined window.",
+    "interpretation": "A target-complete shared catalog must contain the union of all observed target JobIDs for every included user."
+  },
+  "aggregate": {
+    "audit_unique_target_jobs_min": 2262.0,
+    "audit_unique_target_jobs_max": 3360.0,
+    "audit_target_share_of_5000_min": 0.4524,
+    "audit_target_share_of_5000_max": 0.672,
+    "audit_non_target_capacity_min": 1640.0,
+    "audit_non_target_capacity_max": 2738.0,
+    "population_unique_target_jobs_min": 11565.0,
+    "population_unique_target_jobs_max": 25843.0
+  },
+  "checks": {
+    "seven_windows_present": true,
+    "audit_cohort_is_1000_per_window": true,
+    "audit_users_are_population_subset": true,
+    "target_users_are_population_subset": true,
+    "all_audit_users_have_targets": true,
+    "audit_shared_5000_feasible_all_windows": true,
+    "population_shared_5000_infeasible_all_windows": true
+  },
+  "source_hashes": [
+    {
+      "window": 1,
+      "file": "cohort_audit_sample.csv",
+      "sha256": "3B7BB6A02AB1EBCE66134D241851DD9A7F7E6C297E8B67E4CCE919344FFF0E04"
+    },
+    {
+      "window": 1,
+      "file": "cohort_population.csv",
+      "sha256": "0C5EBF1C6CACFD446D82526F1D55510597D981BFB66BB0C0C36242899DA77E20"
+    },
+    {
+      "window": 1,
+      "file": "valid_future_targets.csv",
+      "sha256": "C43EF8C7C841E602710CA63FB43FA11871B93DB3078E7E7E98EB48AFA4B9ABD9"
+    },
+    {
+      "window": 2,
+      "file": "cohort_audit_sample.csv",
+      "sha256": "AB2DB8DAFB5925B380C3DB00086DE9E9DB9A1D4F933ACFAD8C6EB31E55254C7D"
+    },
+    {
+      "window": 2,
+      "file": "cohort_population.csv",
+      "sha256": "1D090A9608C9D15FC3496DEA5EF3C2EBB4ADE302CDCE05CBB520AA1E862B8472"
+    },
+    {
+      "window": 2,
+      "file": "valid_future_targets.csv",
+      "sha256": "61CFDCFBA97CA4C8DE1B87E5FF9A164D0FEC83F71D677354F007C1A6A7281EA8"
+    },
+    {
+      "window": 3,
+      "file": "cohort_audit_sample.csv",
+      "sha256": "425E14CD4A960DF08612C4842C6937A13A32ED8A1EFBC2447F53241F654E6B3B"
+    },
+    {
+      "window": 3,
+      "file": "cohort_population.csv",
+      "sha256": "F46FB742D8A17E47F6D8CA7F66C9B53DB54986DB9CA5E8B54C219FA74F9A33E3"
+    },
+    {
+      "window": 3,
+      "file": "valid_future_targets.csv",
+      "sha256": "2FFBE4EE3E3E5A39394CC135B86F99122EFC090A8F6B29ABC246B48C9DED932B"
+    },
+    {
+      "window": 4,
+      "file": "cohort_audit_sample.csv",
+      "sha256": "CAB07C2FE0DAD590909D855D4B3C5457B1515CE674F2D999A71486D995D4C52C"
+    },
+    {
+      "window": 4,
+      "file": "cohort_population.csv",
+      "sha256": "E70E3297453560B9E0503C72DA5DE8B160A1A96E554DE364515FBB34E6052FE7"
+    },
+    {
+      "window": 4,
+      "file": "valid_future_targets.csv",
+      "sha256": "DDA6EC892B6A5F5ABF98A02CE3533BDF690EDF6F31AF17A4BC4AA03FA115FF2C"
+    },
+    {
+      "window": 5,
+      "file": "cohort_audit_sample.csv",
+      "sha256": "B46F712CDA1BAC348FAAA009FC18841C00B69C356BF8A91517E0A44DE4476E71"
+    },
+    {
+      "window": 5,
+      "file": "cohort_population.csv",
+      "sha256": "0E1D55F567ECB3299EDCBA71EF5E4C889F58683FE7ECF1AEF9A56D9977A287FB"
+    },
+    {
+      "window": 5,
+      "file": "valid_future_targets.csv",
+      "sha256": "F8150D89D72A1B0D0958EB0FC5804D53BE7122154219FC48C43F8874682486A5"
+    },
+    {
+      "window": 6,
+      "file": "cohort_audit_sample.csv",
+      "sha256": "37BD2FB18D7092ADBE509A3269A4F8BBB7527702876D9387E0480E8F04F36CEA"
+    },
+    {
+      "window": 6,
+      "file": "cohort_population.csv",
+      "sha256": "1F7597E0C58502601810CC4633E87DD7AD8F530FAAC54240E9FB0402B2E2F8DA"
+    },
+    {
+      "window": 6,
+      "file": "valid_future_targets.csv",
+      "sha256": "5FA290D57AE813F919A45CDA1C9E17B45EE5424D26F6BC386C163BA17EF29F29"
+    },
+    {
+      "window": 7,
+      "file": "cohort_audit_sample.csv",
+      "sha256": "D4CCACA0011DE83F7D87FFAD893A4DA6B1F39E7F9FA620767594D86AE85DD1F2"
+    },
+    {
+      "window": 7,
+      "file": "cohort_population.csv",
+      "sha256": "E5B9C08A0C81D08B8E3EF3CD0DDE1A5AE8E674D11D61E212EA0FAFC38A4808CC"
+    },
+    {
+      "window": 7,
+      "file": "valid_future_targets.csv",
+      "sha256": "D458DFB61315B8829CDA3BB4E49CDB5F2E26CE1F316DC2322192E5CFE761EE0B"
+    }
+  ],
+  "output_csv_sha256": "9A7FE21B43114BFD712862536319D8967BB97403F628745A12EE5CA08004D302",
+  "rows": [
+    {
+      "window": 1,
+      "nominal_shared_catalog_size": 5000,
+      "audit_users": 1000,
+      "population_users": 15084,
+      "audit_target_events": 3826,
+      "population_target_events": 58305,
+      "audit_unique_target_jobs": 3360,
+      "population_unique_target_jobs": 25843,
+      "audit_target_share_of_5000": 0.672,
+      "audit_non_target_capacity_in_5000": 1640,
+      "audit_shared_5000_target_complete": true,
+      "population_target_requirement_ratio_to_5000": 5.1686,
+      "population_excess_target_jobs_over_5000": 20843,
+      "population_shared_5000_target_complete": false
+    },
+    {
+      "window": 2,
+      "nominal_shared_catalog_size": 5000,
+      "audit_users": 1000,
+      "population_users": 6804,
+      "audit_target_events": 2695,
+      "population_target_events": 18252,
+      "audit_unique_target_jobs": 2387,
+      "population_unique_target_jobs": 11565,
+      "audit_target_share_of_5000": 0.4774,
+      "audit_non_target_capacity_in_5000": 2613,
+      "audit_shared_5000_target_complete": true,
+      "population_target_requirement_ratio_to_5000": 2.313,
+      "population_excess_target_jobs_over_5000": 6565,
+      "population_shared_5000_target_complete": false
+    },
+    {
+      "window": 3,
+      "nominal_shared_catalog_size": 5000,
+      "audit_users": 1000,
+      "population_users": 8063,
+      "audit_target_events": 3065,
+      "population_target_events": 24796,
+      "audit_unique_target_jobs": 2659,
+      "population_unique_target_jobs": 13164,
+      "audit_target_share_of_5000": 0.5318,
+      "audit_non_target_capacity_in_5000": 2341,
+      "audit_shared_5000_target_complete": true,
+      "population_target_requirement_ratio_to_5000": 2.6328,
+      "population_excess_target_jobs_over_5000": 8164,
+      "population_shared_5000_target_complete": false
+    },
+    {
+      "window": 4,
+      "nominal_shared_catalog_size": 5000,
+      "audit_users": 1000,
+      "population_users": 10131,
+      "audit_target_events": 3466,
+      "population_target_events": 34085,
+      "audit_unique_target_jobs": 2926,
+      "population_unique_target_jobs": 15685,
+      "audit_target_share_of_5000": 0.5852,
+      "audit_non_target_capacity_in_5000": 2074,
+      "audit_shared_5000_target_complete": true,
+      "population_target_requirement_ratio_to_5000": 3.137,
+      "population_excess_target_jobs_over_5000": 10685,
+      "population_shared_5000_target_complete": false
+    },
+    {
+      "window": 5,
+      "nominal_shared_catalog_size": 5000,
+      "audit_users": 1000,
+      "population_users": 13105,
+      "audit_target_events": 3411,
+      "population_target_events": 45299,
+      "audit_unique_target_jobs": 2788,
+      "population_unique_target_jobs": 18382,
+      "audit_target_share_of_5000": 0.5576,
+      "audit_non_target_capacity_in_5000": 2212,
+      "audit_shared_5000_target_complete": true,
+      "population_target_requirement_ratio_to_5000": 3.6764,
+      "population_excess_target_jobs_over_5000": 13382,
+      "population_shared_5000_target_complete": false
+    },
+    {
+      "window": 6,
+      "nominal_shared_catalog_size": 5000,
+      "audit_users": 1000,
+      "population_users": 11227,
+      "audit_target_events": 3436,
+      "population_target_events": 33026,
+      "audit_unique_target_jobs": 2889,
+      "population_unique_target_jobs": 13834,
+      "audit_target_share_of_5000": 0.5778,
+      "audit_non_target_capacity_in_5000": 2111,
+      "audit_shared_5000_target_complete": true,
+      "population_target_requirement_ratio_to_5000": 2.7668,
+      "population_excess_target_jobs_over_5000": 8834,
+      "population_shared_5000_target_complete": false
+    },
+    {
+      "window": 7,
+      "nominal_shared_catalog_size": 5000,
+      "audit_users": 1000,
+      "population_users": 10977,
+      "audit_target_events": 2699,
+      "population_target_events": 28926,
+      "audit_unique_target_jobs": 2262,
+      "population_unique_target_jobs": 12193,
+      "audit_target_share_of_5000": 0.4524,
+      "audit_non_target_capacity_in_5000": 2738,
+      "audit_shared_5000_target_complete": true,
+      "population_target_requirement_ratio_to_5000": 2.4386,
+      "population_excess_target_jobs_over_5000": 7193,
+      "population_shared_5000_target_complete": false
+    }
+  ]
+}

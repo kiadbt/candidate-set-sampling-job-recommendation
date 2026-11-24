@@ -30,6 +30,7 @@ SAFE_COMMON_FIELDS = [
 ]
 KS = (1, 5, 10, 20)
 SIZES = (100, 500, 1000, 2500, 5000)
+RRF_MODEL = "rrf_bm25_minilm"
 
 
 def parse_args() -> argparse.Namespace:
@@ -43,6 +44,7 @@ def parse_args() -> argparse.Namespace:
                    help="Chronological prefix for a smoke test; omit for full test.")
     p.add_argument("--semantic-model", default="sentence-transformers/all-MiniLM-L6-v2")
     p.add_argument("--semantic-cache", type=Path, default=Path("Results/JTH_Semantic_Cache"))
+    p.add_argument("--rrf-constant", type=float, default=60.0)
     return p.parse_args()
 
 
@@ -61,6 +63,14 @@ def join_fields(df: pd.DataFrame, fields: list[str]) -> pd.Series:
 def query_seed(seed: int, candidate_id: int, timestamp: pd.Timestamp, strategy: str) -> int:
     raw = f"{seed}|{candidate_id}|{timestamp.date()}|{strategy}".encode()
     return int.from_bytes(hashlib.blake2b(raw, digest_size=8).digest(), "little")
+
+
+def file_sha256(path: Path) -> str:
+    digest = hashlib.sha256()
+    with path.open("rb") as handle:
+        for chunk in iter(lambda: handle.read(8 << 20), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 
 def text_digest(texts: pd.Series, model_name: str) -> str:
@@ -114,6 +124,36 @@ def metric_row(ranked: np.ndarray, relevant: set[int], k: int) -> dict[str, floa
             "ndcg": ndcg, "map": ap, "mrr": rr}
 
 
+def reciprocal_rank_fusion_within_candidates(
+    job_ids: np.ndarray,
+    candidate_indices: np.ndarray,
+    lexical_scores: np.ndarray,
+    semantic_scores: np.ndarray,
+    output_depth: int,
+    constant: float = 60.0,
+) -> np.ndarray:
+    """Exact deterministic RRF with ranks formed inside one candidate set."""
+    if constant <= 0:
+        raise ValueError("RRF constant must be positive")
+    identifiers = job_ids[candidate_indices]
+    lexical_order = np.lexsort(
+        (identifiers, -lexical_scores[candidate_indices])
+    )
+    semantic_order = np.lexsort(
+        (identifiers, -semantic_scores[candidate_indices])
+    )
+    lexical_ranks = np.empty(len(candidate_indices), dtype=np.int64)
+    semantic_ranks = np.empty(len(candidate_indices), dtype=np.int64)
+    lexical_ranks[lexical_order] = np.arange(1, len(candidate_indices) + 1, dtype=np.int64)
+    semantic_ranks[semantic_order] = np.arange(1, len(candidate_indices) + 1, dtype=np.int64)
+    fused_scores = (
+        1.0 / (constant + lexical_ranks)
+        + 1.0 / (constant + semantic_ranks)
+    )
+    fused_order = np.lexsort((identifiers, -fused_scores))
+    return identifiers[fused_order[: min(int(output_depth), len(fused_order))]]
+
+
 def sampled_negative_order(eligible: np.ndarray, relevant_idx: np.ndarray,
                            strategy: str, rng: np.random.Generator,
                            pop_weights: np.ndarray) -> np.ndarray:
@@ -131,6 +171,24 @@ def sampled_negative_order(eligible: np.ndarray, relevant_idx: np.ndarray,
 
 def main() -> None:
     args = parse_args()
+    allowed_models = {
+        "random", "popularity", "tfidf", "bm25", "semantic",
+        "recency_pop", "item_knn", RRF_MODEL,
+    }
+    unknown_models = set(args.models) - allowed_models
+    if unknown_models:
+        raise ValueError(f"Unknown models: {sorted(unknown_models)}")
+    if len(args.models) != len(set(args.models)):
+        raise ValueError("Duplicate model names are not allowed")
+    if RRF_MODEL in args.models:
+        if not math.isclose(args.rrf_constant, 60.0):
+            raise RuntimeError("Fixed RRF sensitivity requires constant=60")
+        protected_outputs = ("per_query_metrics.csv.gz", "summary_metrics.csv", "audit.json")
+        existing = [name for name in protected_outputs if (args.out / name).exists()]
+        if existing:
+            raise RuntimeError(
+                f"RRF revision output directory is not fresh; existing files: {existing}"
+            )
     started = time.time()
     args.out.mkdir(parents=True, exist_ok=True)
 
@@ -147,6 +205,23 @@ def main() -> None:
         "raw_test_rows": int(len(test_raw)),
         "duplicate_exact_test_rows": int(test_raw.duplicated().sum()),
         "duplicate_candidate_date_rows": int(test_raw.duplicated(["candidate_id", "timestamp"]).sum()),
+        "provenance": {
+            "evaluator_file": Path(__file__).name,
+            "evaluator_sha256": file_sha256(Path(__file__)),
+            "inputs": [
+                {
+                    "dataset_relative_path": path.relative_to(args.data).as_posix(),
+                    "bytes": path.stat().st_size,
+                    "sha256": file_sha256(path),
+                }
+                for path in (
+                    args.data / "jobs.csv",
+                    args.data / "candidates.csv",
+                    args.data / "binary" / "train.csv",
+                    args.data / "binary" / "test.csv",
+                )
+            ],
+        },
     }
     # Exact duplicated records provide no additional relevance information.
     test = test_raw.drop_duplicates().copy()
@@ -197,7 +272,7 @@ def main() -> None:
         audit["tfidf_vocabulary_size"] = int(len(vectorizer.vocabulary_))
 
     bm25_jobs = bm25_candidates = None
-    if "bm25" in args.models:
+    if "bm25" in args.models or RRF_MODEL in args.models:
         cv = CountVectorizer(min_df=2, max_df=0.98, ngram_range=(1, 2),
                              max_features=100_000, dtype=np.float32)
         counts = sparse.csr_matrix(cv.fit_transform(job_text), dtype=np.float32)
@@ -218,7 +293,7 @@ def main() -> None:
         audit["bm25_parameters"] = {"k1": k1, "b": b}
 
     semantic_jobs = semantic_candidates = None
-    if "semantic" in args.models:
+    if "semantic" in args.models or RRF_MODEL in args.models:
         semantic_jobs, job_digest, job_cache_hit = semantic_embeddings(
             job_text, args.semantic_model, args.semantic_cache, "jobs")
         semantic_candidates, candidate_digest, candidate_cache_hit = semantic_embeddings(
@@ -263,7 +338,7 @@ def main() -> None:
         eligible = np.flatnonzero(job_dates <= np.datetime64(ts)).astype(np.int32)
         relevant_idx = np.array([jid_to_idx[j] for j in relevant_jobs], dtype=np.int32)
         group = "warm" if cid in train_candidates else "cold"
-        score_by_model: dict[str, np.ndarray] = {}
+        score_by_model: dict[str, np.ndarray | tuple[np.ndarray, np.ndarray]] = {}
         if "random" in args.models:
             score_by_model["random"] = np.random.default_rng(
                 query_seed(0, cid, ts, "model_random")).random(len(job_ids))
@@ -271,10 +346,22 @@ def main() -> None:
             score_by_model["popularity"] = pop_scores
         if "tfidf" in args.models:
             score_by_model["tfidf"] = (tfidf_jobs @ tfidf_candidates[candidate_vector_row[cid]].T).toarray().ravel()
-        if "bm25" in args.models:
-            score_by_model["bm25"] = (bm25_jobs @ bm25_candidates[candidate_vector_row[cid]].T).toarray().ravel()
-        if "semantic" in args.models:
-            score_by_model["semantic"] = semantic_jobs @ semantic_candidates[candidate_vector_row[cid]]
+        bm25_query_scores = None
+        semantic_query_scores = None
+        if "bm25" in args.models or RRF_MODEL in args.models:
+            bm25_query_scores = (
+                bm25_jobs @ bm25_candidates[candidate_vector_row[cid]].T
+            ).toarray().ravel()
+            if "bm25" in args.models:
+                score_by_model["bm25"] = bm25_query_scores
+        if "semantic" in args.models or RRF_MODEL in args.models:
+            semantic_query_scores = semantic_jobs @ semantic_candidates[candidate_vector_row[cid]]
+            if "semantic" in args.models:
+                score_by_model["semantic"] = semantic_query_scores
+        if RRF_MODEL in args.models:
+            if bm25_query_scores is None or semantic_query_scores is None:
+                raise AssertionError("RRF components were not prepared")
+            score_by_model[RRF_MODEL] = (bm25_query_scores, semantic_query_scores)
         if "recency_pop" in args.models:
             age_days = np.maximum(0.0, (np.datetime64(ts) - job_dates) / np.timedelta64(1, "D"))
             score_by_model["recency_pop"] = pop_scores * np.exp(-0.02 * age_days)
@@ -289,9 +376,17 @@ def main() -> None:
 
         for model, scores in score_by_model.items():
             # Stable job-id tie break via stable sort over job-id-ordered rows.
-            full_order = eligible[np.lexsort((job_ids[eligible], -scores[eligible]))]
+            if model == RRF_MODEL:
+                lexical_scores, semantic_scores = scores
+                full_ranked_ids = reciprocal_rank_fusion_within_candidates(
+                    job_ids, eligible, lexical_scores, semantic_scores, max(KS),
+                    constant=args.rrf_constant,
+                )
+            else:
+                full_order = eligible[np.lexsort((job_ids[eligible], -scores[eligible]))]
+                full_ranked_ids = job_ids[full_order]
             for k in KS:
-                vals = metric_row(job_ids[full_order], relevant_jobs, k)
+                vals = metric_row(full_ranked_ids, relevant_jobs, k)
                 rows.append({"query_index": qi, "candidate_id": cid, "timestamp": ts.date().isoformat(),
                              "group": group, "n_relevant": len(relevant_jobs),
                              "eligible_catalog": len(eligible), "model": model,
@@ -306,9 +401,17 @@ def main() -> None:
                         n_take = min(len(negative_order), max(0, size - len(relevant_idx)))
                         chosen = (eligible if size >= len(eligible) else
                                   np.concatenate([relevant_idx, negative_order[:n_take]]))
-                        order = chosen[np.lexsort((job_ids[chosen], -scores[chosen]))]
+                        if model == RRF_MODEL:
+                            lexical_scores, semantic_scores = scores
+                            ranked_ids = reciprocal_rank_fusion_within_candidates(
+                                job_ids, chosen, lexical_scores, semantic_scores, max(KS),
+                                constant=args.rrf_constant,
+                            )
+                        else:
+                            order = chosen[np.lexsort((job_ids[chosen], -scores[chosen]))]
+                            ranked_ids = job_ids[order]
                         for k in KS:
-                            vals = metric_row(job_ids[order], relevant_jobs, k)
+                            vals = metric_row(ranked_ids, relevant_jobs, k)
                             rows.append({"query_index": qi, "candidate_id": cid, "timestamp": ts.date().isoformat(),
                                          "group": group, "n_relevant": len(relevant_jobs),
                                          "eligible_catalog": len(eligible), "model": model,
@@ -332,6 +435,15 @@ def main() -> None:
         "sensitive_fields_excluded": ["llm_sex", "llm_nationality", "llm_age_bucket"],
         "elapsed_seconds": round(time.time() - started, 3),
         "output_rows": int(len(per_query)),
+        "rrf": {
+            "included": RRF_MODEL in args.models,
+            "status": "fixed post-decision sensitivity",
+            "components": ["bm25", "semantic"],
+            "retrieval_depth": "complete declared candidate set",
+            "constant": args.rrf_constant,
+            "component_ranks_recomputed_within_each_candidate_set": True,
+            "tie_break": "ascending job_id",
+        },
     })
     (args.out / "audit.json").write_text(json.dumps(audit, indent=2), encoding="utf-8")
     print(json.dumps(audit, indent=2))

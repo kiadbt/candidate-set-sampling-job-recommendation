@@ -1,0 +1,75 @@
+﻿{
+    "analysis":  "Independent verification of shared 5,000-job catalog feasibility",
+    "generated_utc":  "2026-11-24T15:44:26.4109996Z",
+    "method":  "Independent Import-Csv, hashtable membership, and Sort-Object -Unique calculations.",
+    "reported_result_sha256":  "9A7FE21B43114BFD712862536319D8967BB97403F628745A12EE5CA08004D302",
+    "pass":  true,
+    "failures":  [
+
+                 ],
+    "verified_rows":  [
+                          {
+                              "window":  1,
+                              "audit_unique_target_jobs":  3360,
+                              "population_unique_target_jobs":  25843,
+                              "audit_target_share_of_5000":  0.672,
+                              "audit_non_target_capacity_in_5000":  1640,
+                              "population_excess_target_jobs_over_5000":  20843,
+                              "row_matches":  true
+                          },
+                          {
+                              "window":  2,
+                              "audit_unique_target_jobs":  2387,
+                              "population_unique_target_jobs":  11565,
+                              "audit_target_share_of_5000":  0.4774,
+                              "audit_non_target_capacity_in_5000":  2613,
+                              "population_excess_target_jobs_over_5000":  6565,
+                              "row_matches":  true
+                          },
+                          {
+                              "window":  3,
+                              "audit_unique_target_jobs":  2659,
+                              "population_unique_target_jobs":  13164,
+                              "audit_target_share_of_5000":  0.5318,
+                              "audit_non_target_capacity_in_5000":  2341,
+                              "population_excess_target_jobs_over_5000":  8164,
+                              "row_matches":  true
+                          },
+                          {
+                              "window":  4,
+                              "audit_unique_target_jobs":  2926,
+                              "population_unique_target_jobs":  15685,
+                              "audit_target_share_of_5000":  0.5852,
+                              "audit_non_target_capacity_in_5000":  2074,
+                              "population_excess_target_jobs_over_5000":  10685,
+                              "row_matches":  true
+                          },
+                          {
+                              "window":  5,
+                              "audit_unique_target_jobs":  2788,
+                              "population_unique_target_jobs":  18382,
+                              "audit_target_share_of_5000":  0.5576,
+                              "audit_non_target_capacity_in_5000":  2212,
+                              "population_excess_target_jobs_over_5000":  13382,
+                              "row_matches":  true
+                          },
+                          {
+                              "window":  6,
+                              "audit_unique_target_jobs":  2889,
+                              "population_unique_target_jobs":  13834,
+                              "audit_target_share_of_5000":  0.5778,
+                              "audit_non_target_capacity_in_5000":  2111,
+                              "population_excess_target_jobs_over_5000":  8834,
+                              "row_matches":  true
+                          },
+                          {
+                              "window":  7,
+                              "audit_unique_target_jobs":  2262,
+                              "population_unique_target_jobs":  12193,
+                              "audit_target_share_of_5000":  0.4524,
+                              "audit_non_target_capacity_in_5000":  2738,
+                              "population_excess_target_jobs_over_5000":  7193,
+                              "row_matches":  true
+                          }
+                      ]
+}

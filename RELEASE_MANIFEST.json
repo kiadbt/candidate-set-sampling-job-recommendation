@@ -1,13 +1,14 @@
 {
-  "manifest_version": 1,
-  "generated_utc": "2026-11-04T03:53:38Z",
+  "manifest_version": 2,
+  "generated_utc": "2026-11-24T15:52:17Z",
   "scope": "Publication-safe code, protocols, aggregate results, and SVG figure sources.",
   "excluded": [
     "Raw and processed provider datasets",
-    "Individual-level and per-query outputs",
-    "Cached embeddings and model caches",
-    "Checkpoints, temporary files, archives, and submission documents",
-    "Disclosure-sensitive timestamps and local-path logs"
+    "Individual-level, per-user, per-query, and per-job outputs",
+    "Candidate lists and paired-record details",
+    "Cached embeddings, model caches, and checkpoints",
+    "Temporary files, archives, submission documents, and local-path logs",
+    "Row-level event timestamps, other disclosure-sensitive temporal records, and access credentials"
   ],
   "files": [
     {
@@ -16,24 +17,189 @@
       "sha256": "adc5841360c335cef48d136c4da357155d50edacedac633cc82a3fd8f9bc3b56"
     },
     {
-      "path": "aggregate_results/careerbuilder/direct_scoring/BENCHMARK_INTEGRITY_AUDIT.json",
-      "bytes": 1870,
-      "sha256": "751da9d4a12a506b46420487a6a4be03e80b27433f1adc195b8ffce6617965c0"
+      "path": "CITATION.cff",
+      "bytes": 1167,
+      "sha256": "d5b874c17e6c2d96772fe23cd8c932cb96f07d858b1b58578c30153385b501e8"
     },
     {
-      "path": "aggregate_results/careerbuilder/direct_scoring/benchmark_primary_summary.csv",
-      "bytes": 3165,
-      "sha256": "fc025f9da9246603b188d807e91f707a304f2d58d3681c23c246b68c4948635e"
+      "path": "Code/analyze_careerbuilder_internal_temporal.py",
+      "bytes": 131041,
+      "sha256": "126ff12f14a94f708e7acdb8a0e245f169477ce2767ace8f9acccd157aa3011e"
     },
     {
-      "path": "aggregate_results/careerbuilder/direct_scoring/benchmark_primary_window_summary.csv",
-      "bytes": 21147,
-      "sha256": "fd6672804c3ad6aa80ce4211431fb493bdec5e660e05aff6718a87bcd727763f"
+      "path": "Code/analyze_jth_strengthened.py",
+      "bytes": 110436,
+      "sha256": "5628e3d35111820f3918808f6c68ebaa44dac44dfd782e5a8c0a92d2951e5b0f"
     },
     {
-      "path": "aggregate_results/careerbuilder/direct_scoring/benchmark_results.csv",
-      "bytes": 165103,
-      "sha256": "a993e778010521e3eae14d79102a2cc136ade036b70a0ac0a8c403bf416c1dec"
+      "path": "Code/analyze_peer_review_revision.py",
+      "bytes": 50858,
+      "sha256": "6a661b2ded5426cc9bd5d332ca11486438631793f8bfdfa838c2356eeef1af64"
+    },
+    {
+      "path": "Code/audit_careerbuilder_internal_temporal_target_popularity.py",
+      "bytes": 7351,
+      "sha256": "683b8dad7278cf1cced39748bf78631abefa920b8cc975d3983f077915e282c9"
+    },
+    {
+      "path": "Code/build_cross_dataset_synthesis.py",
+      "bytes": 63081,
+      "sha256": "63ebbe540b2a0d8c2ec42130b8737d1d1b633961d9396819513f5846896c99cf"
+    },
+    {
+      "path": "Code/careerbuilder_internal_temporal_direct_scoring_benchmark.py",
+      "bytes": 25312,
+      "sha256": "f0adf926e1e8303605b1532d95469446c591ede737d16a041fc2d4e846597cde"
+    },
+    {
+      "path": "Code/careerbuilder_internal_temporal_evaluation.py",
+      "bytes": 65963,
+      "sha256": "3fa55f4f1081e0d95cd8368db90a9222fd15fe1db1f8b5de627488910c7beeee"
+    },
+    {
+      "path": "Code/generate_release_manifest.py",
+      "bytes": 2576,
+      "sha256": "5f7b78ba9f35c26f701972d5d65f3cd9feb1aa18bf3aa96b59351aafcf2543b5"
+    },
+    {
+      "path": "Code/jth_known_item_sensitivity.py",
+      "bytes": 24879,
+      "sha256": "ddfa4f300a601a5d78a7f744af37ef088fc04bbfcfdccb78d29ab13138ff45d1"
+    },
+    {
+      "path": "Code/jth_sampling_evaluation.py",
+      "bytes": 22567,
+      "sha256": "31146e2ab6b6df01eadbabb92b9f8e7922dfcefb9ef802b6192aa61be5f45a0a"
+    },
+    {
+      "path": "Code/multiwindow_cbf_evaluation.py",
+      "bytes": 12245,
+      "sha256": "5ecc6b08af78984b58f8bf43ebc05d35c542998dba6346fe1566a3608c9250cd"
+    },
+    {
+      "path": "Code/prepare_careerbuilder_internal_temporal.py",
+      "bytes": 23141,
+      "sha256": "bf9798e8cd8ce276b0d508ff6b004198befe707da4a7e2c5734607f53d369ada"
+    },
+    {
+      "path": "Code/preprocess_raw_careerbuilder.py",
+      "bytes": 6890,
+      "sha256": "d31dc1b424eb9f2b8b5f66b4b6867f879177d984198ad3461cb807ddcfdcbb5f"
+    },
+    {
+      "path": "Code/revision_r1_careerbuilder_near_horizon_temporal.py",
+      "bytes": 33450,
+      "sha256": "71c6889313d6e5584605fc772f1a1b1fa2ee266b6eb946e6823aab7a057e7a15"
+    },
+    {
+      "path": "Code/revision_r1_careerbuilder_temporal_contamination.py",
+      "bytes": 32263,
+      "sha256": "91c92a74469222fd5d5259c97a3ef0fb5e5a4ad7c61ccf66288212504f5409d4"
+    },
+    {
+      "path": "Code/revision_r1_conceptual_figures.js",
+      "bytes": 10008,
+      "sha256": "17c6d0c9196f7833f78495b8f4d3311f770b3e43127e39b94163179b129dedcd"
+    },
+    {
+      "path": "Code/revision_r1_cross_window_directional_consistency.py",
+      "bytes": 10364,
+      "sha256": "35c0c793a4a90d3042a6fe4cd7e36a982335e9452ac01c0f169a9bae07660640"
+    },
+    {
+      "path": "Code/revision_r1_data_figures.js",
+      "bytes": 27026,
+      "sha256": "af61dd31fb325eff0831d93767cac7c4ba61ef85249196e7ac5693a89a2d0843"
+    },
+    {
+      "path": "Code/revision_r1_jth_temporal_contamination.py",
+      "bytes": 26643,
+      "sha256": "887cf715939a4080073ab6a9a828e2f37db87238d32a9062765af9048745ac5c"
+    },
+    {
+      "path": "Code/revision_r1_leave_one_window_out.py",
+      "bytes": 27330,
+      "sha256": "0d94073e8febeb801e28a3c801393b0e3848de9d00afa60b835b66092a8c46f3"
+    },
+    {
+      "path": "Code/revision_r1_local_reference_scale.py",
+      "bytes": 17982,
+      "sha256": "07ed721f9fd86e5dab665e9e37ff6f76c97f8177c56d3daf2d3f167c27601ccc"
+    },
+    {
+      "path": "Code/revision_r1_overlap_audit.py",
+      "bytes": 11333,
+      "sha256": "a2a79ad597a803a5ba5a226405a0ce98797793818b80f1a4218d496a3c33cb1e"
+    },
+    {
+      "path": "Code/revision_r1_prepare_careerbuilder_future_contamination.py",
+      "bytes": 13360,
+      "sha256": "fd5daa7b8c9a8b8d92fd51b5c539a927117e2d65dc2b086f41d399864a1eda4a"
+    },
+    {
+      "path": "Code/revision_r1_query_transition.py",
+      "bytes": 15716,
+      "sha256": "0948bf8e2eb684b6144ac9a6a0c99aa3b2dcb37f40b288cb9c745b99ec26b510"
+    },
+    {
+      "path": "Code/revision_r1_shared_catalog_feasibility.ps1",
+      "bytes": 10945,
+      "sha256": "86c0ad76839458954057c518630ea0530906ddaa312e52bd6c05d7b8174497da"
+    },
+    {
+      "path": "Code/test_careerbuilder_internal_temporal_cutoffs.py",
+      "bytes": 3984,
+      "sha256": "381e50ce0200e80e82d444a8804a2c6b85ebbe82a38eadbcb49653e980f04193"
+    },
+    {
+      "path": "Code/test_cross_dataset_synthesis.py",
+      "bytes": 11828,
+      "sha256": "91aa8925a0c9477db393643c0deb475df44d7e1b078821f7d0c7dd6b6f898146"
+    },
+    {
+      "path": "Code/test_revision_r1_careerbuilder_near_horizon_temporal.py",
+      "bytes": 20709,
+      "sha256": "25caa6e66fd9449455d4f2a56d163413288df6e48222032648682ec1771bd549"
+    },
+    {
+      "path": "Code/test_revision_r1_cross_window_directional_consistency.py",
+      "bytes": 5371,
+      "sha256": "d975893aee1b92fc464bb4207c9ef0bfddcf461d84d0615e544a672bf38475b7"
+    },
+    {
+      "path": "Code/test_revision_r1_rrf.py",
+      "bytes": 2395,
+      "sha256": "9c01709c224d70cd3540300d050b434f13f613b0db4717f70ebba7baf5cdc14e"
+    },
+    {
+      "path": "Code/test_revision_r1_shared_catalog_feasibility.ps1",
+      "bytes": 5910,
+      "sha256": "578d9f1bd2c2faf5c03c6a2c777fc4e45b44a361e44d409d17dacb090ef3299c"
+    },
+    {
+      "path": "DATA.md",
+      "bytes": 1983,
+      "sha256": "6aba590004abcccfbdfaf4ede9e20b0920a7e585c5112ed5be13e85fb3de47f0"
+    },
+    {
+      "path": "README.md",
+      "bytes": 6858,
+      "sha256": "e523f3fa9c3e97137c65aaf64bb23a7b7492070ea23ece15c1a6547412e11621"
+    },
+    {
+      "path": "REPRODUCIBILITY.md",
+      "bytes": 5338,
+      "sha256": "793f7b6ae6ea77b36790670ad72d64dd069b17aced42c9ba223d67504c67d6d0"
+    },
+    {
+      "path": "REPRODUCIBILITY_VERIFICATION.md",
+      "bytes": 4736,
+      "sha256": "c6eaa435f36cec3a2b4a6a8046236cf77f51dcd28baf72e7e995454b43c1d89c"
+    },
+    {
+      "path": "RIGHTS.md",
+      "bytes": 1403,
+      "sha256": "f4fd6569435fc8b3dbfca1828c261ac5b370869c3d4924e4afa917eed477ca00"
     },
     {
       "path": "aggregate_results/careerbuilder/First5Last4/candidate_scale_and_realized_fraction.csv",
@@ -146,6 +312,11 @@
       "sha256": "8823cebb0a13f250c2690cf2b133b96034cbef854f2b19a4d15c15a06a3c9bb3"
     },
     {
+      "path": "aggregate_results/careerbuilder/First7Last2/INTEGRITY_AUDIT.json",
+      "bytes": 622,
+      "sha256": "ffef1748b7e56ab8a65288635c0d8e0856bba142ea6ec265debce8f837a471b0"
+    },
+    {
       "path": "aggregate_results/careerbuilder/First7Last2/aggregate_metrics.csv",
       "bytes": 2577912,
       "sha256": "6654612aa22e24048e75572d777747be0be5275016f1fde96b9c394b02d639ca"
@@ -154,11 +325,6 @@
       "path": "aggregate_results/careerbuilder/First7Last2/candidate_scale_and_realized_fraction.csv",
       "bytes": 2192,
       "sha256": "3c89bd544d4c32402cc074baf0621f6adfcb16f95db05ffaf9f3b0a510a73c8b"
-    },
-    {
-      "path": "aggregate_results/careerbuilder/First7Last2/INTEGRITY_AUDIT.json",
-      "bytes": 622,
-      "sha256": "ffef1748b7e56ab8a65288635c0d8e0856bba142ea6ec265debce8f837a471b0"
     },
     {
       "path": "aggregate_results/careerbuilder/First7Last2/pooled_estimates.csv",
@@ -229,6 +395,26 @@
       "path": "aggregate_results/careerbuilder/First7Last2/window_variability_equal_window_sensitivity.csv",
       "bytes": 3029822,
       "sha256": "ea1fd5e3d8ee0eb1ee96fb5dace8fea41a574b949217d67ce1bcecaef5ecb843"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/direct_scoring/BENCHMARK_INTEGRITY_AUDIT.json",
+      "bytes": 1870,
+      "sha256": "751da9d4a12a506b46420487a6a4be03e80b27433f1adc195b8ffce6617965c0"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/direct_scoring/benchmark_primary_summary.csv",
+      "bytes": 3165,
+      "sha256": "fc025f9da9246603b188d807e91f707a304f2d58d3681c23c246b68c4948635e"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/direct_scoring/benchmark_primary_window_summary.csv",
+      "bytes": 21147,
+      "sha256": "fd6672804c3ad6aa80ce4211431fb493bdec5e660e05aff6718a87bcd727763f"
+    },
+    {
+      "path": "aggregate_results/careerbuilder/direct_scoring/benchmark_results.csv",
+      "bytes": 165103,
+      "sha256": "a993e778010521e3eae14d79102a2cc136ade036b70a0ac0a8c403bf416c1dec"
     },
     {
       "path": "aggregate_results/cross_dataset/cross_dataset_classification_matrix.csv",
@@ -346,6 +532,16 @@
       "sha256": "d7f67a37276412f745554e24814ec90816e57945a635a74c1aaf467504f06ee1"
     },
     {
+      "path": "aggregate_results/post_review/POST_REVIEW_INTEGRITY_SUMMARY.json",
+      "bytes": 3008,
+      "sha256": "7cc8b2c988aaf582966a2c5086f40e4bf96e3c8a007c5bb69e2284c64ead6d8d"
+    },
+    {
+      "path": "aggregate_results/post_review/decision_calibration.csv",
+      "bytes": 11349,
+      "sha256": "e4ab6edd87e302107241c4710990030a422596ab5daef75ec06f97b5437f2a28"
+    },
+    {
       "path": "aggregate_results/post_review/decision_calibration_minimums.csv",
       "bytes": 10490,
       "sha256": "19e749b4c1e6ba28d0b18dbcc4c788fe17c5b57ae6bdf439a40e6e1b0e89fde6"
@@ -356,19 +552,9 @@
       "sha256": "586560dfdcd94002413a0454aa032f01b1197339d03913b3734f86a32386bf80"
     },
     {
-      "path": "aggregate_results/post_review/decision_calibration.csv",
-      "bytes": 11349,
-      "sha256": "e4ab6edd87e302107241c4710990030a422596ab5daef75ec06f97b5437f2a28"
-    },
-    {
       "path": "aggregate_results/post_review/matched_fraction_descriptive.csv",
       "bytes": 2028,
       "sha256": "79e6f17ca96cf06899609ad3d42189d6d78c59d9b990ee10578b3ee3aa14d168"
-    },
-    {
-      "path": "aggregate_results/post_review/POST_REVIEW_INTEGRITY_SUMMARY.json",
-      "bytes": 3008,
-      "sha256": "7cc8b2c988aaf582966a2c5086f40e4bf96e3c8a007c5bb69e2284c64ead6d8d"
     },
     {
       "path": "aggregate_results/post_review/relevance_set_distribution.csv",
@@ -406,154 +592,204 @@
       "sha256": "cdc5b4e748726f8c0fcee91b8e84797a3eb03ae5619ebb480c501d8d913ef4d1"
     },
     {
-      "path": "CITATION.cff",
-      "bytes": 1145,
-      "sha256": "e288208b8cf092ca5fe5442fe2ed9c9755d8df72da50ac07a085befc261a7d51"
+      "path": "aggregate_results/revision_r1/careerbuilder_cross_window_direction/INDEPENDENT_QA.json",
+      "bytes": 843,
+      "sha256": "a6805666760a1d728a259801ad76bb75ea7c40c54825b9c21d36895ce0d6c287"
     },
     {
-      "path": "Code/analyze_careerbuilder_internal_temporal.py",
-      "bytes": 131041,
-      "sha256": "126ff12f14a94f708e7acdb8a0e245f169477ce2767ace8f9acccd157aa3011e"
+      "path": "aggregate_results/revision_r1/careerbuilder_cross_window_direction/README.md",
+      "bytes": 3063,
+      "sha256": "083c62184261753e0c9bd42b2e076625bbea55f9d5a5fa57ddb743b63414d318"
     },
     {
-      "path": "Code/analyze_jth_strengthened.py",
-      "bytes": 110436,
-      "sha256": "5628e3d35111820f3918808f6c68ebaa44dac44dfd782e5a8c0a92d2951e5b0f"
+      "path": "aggregate_results/revision_r1/careerbuilder_cross_window_direction/careerbuilder_size100_hitrate_directional_consistency_audit.json",
+      "bytes": 1908,
+      "sha256": "027ff8eaf6a6e324210bd228a8dcaa2142875dd340b06d55be8fd0bc49557d49"
     },
     {
-      "path": "Code/analyze_peer_review_revision.py",
-      "bytes": 50858,
-      "sha256": "6a661b2ded5426cc9bd5d332ca11486438631793f8bfdfa838c2356eeef1af64"
+      "path": "aggregate_results/revision_r1/careerbuilder_cross_window_direction/careerbuilder_size100_hitrate_directional_consistency_detail.csv",
+      "bytes": 33142,
+      "sha256": "a33ae57235f25bd90ea4ab72660793114524d116488005206805661f12865430"
     },
     {
-      "path": "Code/audit_careerbuilder_internal_temporal_target_popularity.py",
-      "bytes": 7351,
-      "sha256": "683b8dad7278cf1cced39748bf78631abefa920b8cc975d3983f077915e282c9"
+      "path": "aggregate_results/revision_r1/careerbuilder_cross_window_direction/careerbuilder_size100_hitrate_directional_consistency_summary.csv",
+      "bytes": 1520,
+      "sha256": "0dc88b54677899b68dc97d9ae9454e000e629db3c13f7c4acf63541434bdb998"
     },
     {
-      "path": "Code/build_cross_dataset_synthesis.py",
-      "bytes": 63081,
-      "sha256": "63ebbe540b2a0d8c2ec42130b8737d1d1b633961d9396819513f5846896c99cf"
+      "path": "aggregate_results/revision_r1/careerbuilder_leave_one_window_out/leave_one_window_out_full_catalog_stability.csv",
+      "bytes": 11475,
+      "sha256": "efdbd18803db58e128b58ccc9b818a693a5f387a2a41afa362afe7567dd1b031"
     },
     {
-      "path": "Code/careerbuilder_internal_temporal_direct_scoring_benchmark.py",
-      "bytes": 25312,
-      "sha256": "f0adf926e1e8303605b1532d95469446c591ede737d16a041fc2d4e846597cde"
+      "path": "aggregate_results/revision_r1/careerbuilder_leave_one_window_out/leave_one_window_out_primary_contrasts.csv",
+      "bytes": 546145,
+      "sha256": "8d72199b2385ffbc4a25a78c230b0bcbe36725e999fdc36a1ee854a333b04f06"
     },
     {
-      "path": "Code/careerbuilder_internal_temporal_evaluation.py",
-      "bytes": 60432,
-      "sha256": "c2c38c0b356896619853259ed2b2f9b29f2b651ff386002d9399734239c7e756"
+      "path": "aggregate_results/revision_r1/careerbuilder_leave_one_window_out/leave_one_window_out_rank_fidelity_summary.csv",
+      "bytes": 10532,
+      "sha256": "6c08e97c48ba2f9595625c17661f2f477bb3d82c0edcb738f967ddd683badda1"
     },
     {
-      "path": "Code/jth_known_item_sensitivity.py",
-      "bytes": 24879,
-      "sha256": "ddfa4f300a601a5d78a7f744af37ef088fc04bbfcfdccb78d29ab13138ff45d1"
+      "path": "aggregate_results/revision_r1/careerbuilder_local_reference_scale/careerbuilder_local_reference_rank_fidelity_summary.csv",
+      "bytes": 956,
+      "sha256": "9daa8f76b15870e3a5fd68b269998f05b7580f318ca5571cd3a42632d58f1c27"
     },
     {
-      "path": "Code/jth_sampling_evaluation.py",
-      "bytes": 17499,
-      "sha256": "a724ce898fee30c1f251fddf8cac650ff9df04e2d265c43de286f7e0ceb6c77a"
+      "path": "aggregate_results/revision_r1/careerbuilder_local_reference_scale/careerbuilder_local_reference_summary.csv",
+      "bytes": 11580,
+      "sha256": "31a4529d5b844cda66abe992d786b22afaccadecc60c18719f3e0e7495577854"
     },
     {
-      "path": "Code/multiwindow_cbf_evaluation.py",
-      "bytes": 12245,
-      "sha256": "5ecc6b08af78984b58f8bf43ebc05d35c542998dba6346fe1566a3608c9250cd"
+      "path": "aggregate_results/revision_r1/careerbuilder_overlap/careerbuilder_cross_window_overlap_summary.csv",
+      "bytes": 322,
+      "sha256": "ff3774760f5e699737888aaffef6abd334ba8ec50b753321307fe8acb4a0081c"
     },
     {
-      "path": "Code/prepare_careerbuilder_internal_temporal.py",
-      "bytes": 23141,
-      "sha256": "bf9798e8cd8ce276b0d508ff6b004198befe707da4a7e2c5734607f53d369ada"
+      "path": "aggregate_results/revision_r1/careerbuilder_overlap/careerbuilder_cross_window_pairwise_overlap.csv",
+      "bytes": 5329,
+      "sha256": "dc57935eba042de961b81fb9859ec3e0fe08581fa43c5ab260278ed5d2dd827c"
     },
     {
-      "path": "Code/preprocess_raw_careerbuilder.py",
-      "bytes": 6890,
-      "sha256": "d31dc1b424eb9f2b8b5f66b4b6867f879177d984198ad3461cb807ddcfdcbb5f"
+      "path": "aggregate_results/revision_r1/careerbuilder_overlap/careerbuilder_window_identifier_counts.csv",
+      "bytes": 400,
+      "sha256": "ba1555c1ae2c52c836ca94df77522f7aab23daf65e6a9e086f28e53e6fceb5ce"
     },
     {
-      "path": "Code/test_careerbuilder_internal_temporal_cutoffs.py",
-      "bytes": 3894,
-      "sha256": "6bf71b40a656c4001fdb4536de1db8a1b5c06d24ff4899bbc676411c7d4989c4"
+      "path": "aggregate_results/revision_r1/careerbuilder_overlap/careerbuilder_window_period_overlap.csv",
+      "bytes": 2281,
+      "sha256": "d17e48d3a145c9f695f419fb0342c204021c7665d34c4fe65a8984f3a72d4fbd"
     },
     {
-      "path": "Code/test_cross_dataset_synthesis.py",
-      "bytes": 11828,
-      "sha256": "91aa8925a0c9477db393643c0deb475df44d7e1b078821f7d0c7dd6b6f898146"
+      "path": "aggregate_results/revision_r1/careerbuilder_query_transition/careerbuilder_title_bm25_minilm_rank_summary.csv",
+      "bytes": 2684,
+      "sha256": "0ab0b3cfd1c05c414f08e375a219ffb794b56df90927db33d5f7d8200e09bcf2"
     },
     {
-      "path": "DATA.md",
-      "bytes": 1983,
-      "sha256": "6aba590004abcccfbdfaf4ede9e20b0920a7e585c5112ed5be13e85fb3de47f0"
+      "path": "aggregate_results/revision_r1/careerbuilder_query_transition/careerbuilder_title_bm25_minilm_transition_summary.csv",
+      "bytes": 16689,
+      "sha256": "dbe6954c4cf12e6351e6aafe29e1ffcc16d551f932a66de0500c048e9199796c"
     },
     {
-      "path": "figures/main/figure_1_cross_dataset_metric_bias.svg",
-      "bytes": 700848,
-      "sha256": "450c1d3e3cbeed3e7cda1fb4f0a3a81df5e234f88442083b0ffab8a92eeb0a0d"
+      "path": "aggregate_results/revision_r1/careerbuilder_shared_catalog_feasibility/INDEPENDENT_QA.json",
+      "bytes": 4107,
+      "sha256": "49e81a8d2fe95523692d56acda78ae0f6de695152bd9bf67de87ce92d8ed5ff5"
     },
     {
-      "path": "figures/main/figure_2_cross_dataset_rank_winner_fidelity.svg",
-      "bytes": 228337,
-      "sha256": "29f48d099e25d25dcf23cb834cba3a023203442890a1560dde52a67d410d9824"
+      "path": "aggregate_results/revision_r1/careerbuilder_shared_catalog_feasibility/INDEPENDENT_QA.md",
+      "bytes": 630,
+      "sha256": "7a45b09a8059cf73c3fb474442951edc70a3bc303c84b26f2cff4f55ec6314cf"
     },
     {
-      "path": "figures/main/figure_3_compute_evidence_boundary.svg",
-      "bytes": 182866,
-      "sha256": "7b328ef478f13a1dc87ae8fa7beab88a1f01681850c01a2f93b2761b55641be7"
+      "path": "aggregate_results/revision_r1/careerbuilder_shared_catalog_feasibility/README.md",
+      "bytes": 2089,
+      "sha256": "e0e0ab5812e5bd1f0f1e5ab7572df9cb39f9c794b0c960cb908e237dbeddde44"
     },
     {
-      "path": "figures/main/figure_concept_gls_evaluation_scope.svg",
-      "bytes": 3447,
-      "sha256": "0ebf17b04e1b4f3975f1f5b179c620621715a3a412c0b53c34aae82a9f98a3f4"
+      "path": "aggregate_results/revision_r1/careerbuilder_shared_catalog_feasibility/shared_catalog_feasibility_audit.json",
+      "bytes": 9352,
+      "sha256": "ba60a8838ce4373c20322e7f95f296daa76d62fb45f40d2e25e4c95f1c6251f7"
     },
     {
-      "path": "figures/main/figure_controlled_audit_workflow.svg",
-      "bytes": 5551,
-      "sha256": "abb351a600a54eff26585f096aa6f69d4aa247e71b5a9dadd12791606d062fca"
+      "path": "aggregate_results/revision_r1/careerbuilder_shared_catalog_feasibility/shared_catalog_feasibility_by_window.csv",
+      "bytes": 1137,
+      "sha256": "9a7fe21b43114bfd712862536319d8967bb97403f628745a12ee5ca08004d302"
     },
     {
-      "path": "figures/main/figure_paired_decision_contrasts.svg",
-      "bytes": 14012,
-      "sha256": "0f4e86fa67dc81c81f0898215bb8db572b130374488f746bda4568d5219dd0a4"
+      "path": "aggregate_results/revision_r1/rrf/careerbuilder/aggregate_metrics.csv",
+      "bytes": 435717,
+      "sha256": "e06c3c1bf05ca14b2fff1398c196d01a8829fce32f6752791334b723e008f3a9"
     },
     {
-      "path": "figures/supplement/careerbuilder_figure_3_seven_window_full_catalog.svg",
-      "bytes": 59527,
-      "sha256": "340b26aec8e9cbf86947fda32594a2212d1612d37551859fd0dc4e768f411e8d"
+      "path": "aggregate_results/revision_r1/rrf/jth/summary_metrics.csv",
+      "bytes": 100072,
+      "sha256": "eb26a6244dffe1475f30d7583bb32623a170cb38ffb64e7ac75f09a514b0a8b3"
     },
     {
-      "path": "figures/supplement/careerbuilder_figure_4_contrast_distortion.svg",
-      "bytes": 109578,
-      "sha256": "60101a07409959e1e5eab4a3ee79d0b6691cec9c9229127cd4c9df80daf82b03"
+      "path": "aggregate_results/revision_r1/temporal_eligibility/careerbuilder/careerbuilder_temporal_contamination_model_rankings.csv",
+      "bytes": 28530,
+      "sha256": "5e8e93a1de0d74e4a798ec2ede181724b523f5262d2d592962dba60843c6b355"
     },
     {
-      "path": "figures/supplement/careerbuilder_figure_5_subgroup_effectiveness.svg",
-      "bytes": 86971,
-      "sha256": "7b5b10e7ebf94f7d5baa56cd4f19a14ab4a001add9a959317624f09dd5d11b11"
+      "path": "aggregate_results/revision_r1/temporal_eligibility/careerbuilder/careerbuilder_temporal_contamination_summary.csv",
+      "bytes": 21916,
+      "sha256": "895133e683813922e25016c27a2546d3f272401a3002a30d68b913f40e3d7198"
     },
     {
-      "path": "figures/supplement/careerbuilder_figure_6_subgroup_evaluation_bias.svg",
-      "bytes": 150752,
-      "sha256": "f92bb8bec41ff6f67523e7f253957b153b4fab92ce38678d33e4ad2f3c7e1b2c"
+      "path": "aggregate_results/revision_r1/temporal_eligibility/careerbuilder_near_horizon/NEAR_HORIZON_INDEPENDENT_QA.json",
+      "bytes": 4289,
+      "sha256": "35efe42fae3652af966c42b3f57070d71cca65948a6a5c42df5e3bd9d5743592"
     },
     {
-      "path": "figures/supplement/jth_figure_1_cluster_sensitivity_hitrate.svg",
-      "bytes": 72945,
-      "sha256": "105d2ec6914ce0cb7b494decdef19065445dbe4f6dc154b32d83aae3f2cb15bd"
+      "path": "aggregate_results/revision_r1/temporal_eligibility/careerbuilder_near_horizon/NEAR_HORIZON_INDEPENDENT_QA.md",
+      "bytes": 466,
+      "sha256": "4548c80d203ecec922cf6808d068811cdde60a2949e58f626b9afcaa86e83696"
     },
     {
-      "path": "figures/supplement/jth_figure_2_known_item_hitrate.svg",
-      "bytes": 75881,
-      "sha256": "439f4c1b506b9b5d1b4dfac366c3bbce022dd9a4c399e9807c29acd83818a7dc"
+      "path": "aggregate_results/revision_r1/temporal_eligibility/careerbuilder_near_horizon/README_VERIFIED_FINDINGS.md",
+      "bytes": 1701,
+      "sha256": "8c399cdbcd01aad69ea190ce626a8ab347ee39aa24ae28457aeb68513d01c0ad"
     },
     {
-      "path": "figures/supplement/jth_figure_5_subgroup_effectiveness_corrected.svg",
-      "bytes": 66387,
-      "sha256": "9f7dcd8ecbc1aef488befc6740c2cf1f159b65949154921fb6be343620275898"
+      "path": "aggregate_results/revision_r1/temporal_eligibility/careerbuilder_near_horizon/careerbuilder_near_horizon_k20_design_weighted.csv",
+      "bytes": 1006,
+      "sha256": "56e19176a4e32411ad317571f2097bf5b93c5a320dfd861b5f0c829a888dd8f0"
     },
     {
-      "path": "figures/supplement/jth_figure_7_subgroup_evaluation_bias.svg",
-      "bytes": 82777,
-      "sha256": "cf381493908a5eb5d888f1d256cbeae4f4b7e62a5c0bec950f97d721436894c6"
+      "path": "aggregate_results/revision_r1/temporal_eligibility/careerbuilder_near_horizon/careerbuilder_near_horizon_model_rankings.csv",
+      "bytes": 28531,
+      "sha256": "c47918758c5a79c10ed42fb15b9d28302a09dffa777b104b31fd29fdea8cc523"
+    },
+    {
+      "path": "aggregate_results/revision_r1/temporal_eligibility/careerbuilder_near_horizon/careerbuilder_near_horizon_summary.csv",
+      "bytes": 22500,
+      "sha256": "184c173021c5458beac15fc7e80db42a23219885dfab6d7351613673d793b2d2"
+    },
+    {
+      "path": "aggregate_results/revision_r1/temporal_eligibility/careerbuilder_near_horizon/careerbuilder_near_horizon_window_counts.csv",
+      "bytes": 768,
+      "sha256": "b551300f3db22f702ce6c571165b2d6dd373a3089b4061d64898177e84e612ab"
+    },
+    {
+      "path": "aggregate_results/revision_r1/temporal_eligibility/jth/jth_temporal_contamination_model_rankings.csv",
+      "bytes": 22071,
+      "sha256": "035752a949b9693c37c9ab46bd9bc351c396df2b6a33e3d6e1e4e38ce2e49d74"
+    },
+    {
+      "path": "aggregate_results/revision_r1/temporal_eligibility/jth/jth_temporal_contamination_summary.csv",
+      "bytes": 24616,
+      "sha256": "5ec101df26784f3cb0e16e14c27fd3632e5f22857d2e08859517553c8734bddc"
+    },
+    {
+      "path": "figures/README.md",
+      "bytes": 280,
+      "sha256": "5009a72a567569de71c1e8c5edfe975a1c7d9ea08b8893a08589af9d87368c33"
+    },
+    {
+      "path": "figures/main/figure_01_temporal_and_candidate_interventions.svg",
+      "bytes": 9353,
+      "sha256": "b3b7c2124b6a47c57247d340c12488179966518206cea96f226c039e30287ac8"
+    },
+    {
+      "path": "figures/main/figure_02_metric_bias_convergence.svg",
+      "bytes": 32661,
+      "sha256": "1fb2b559e9889c474cbb971e29b0c5713bdca0010e6fa76129fa53ca9f6b9016"
+    },
+    {
+      "path": "figures/main/figure_03_exact_catalog_decision_agreement.svg",
+      "bytes": 17763,
+      "sha256": "1f6765fa22c078e004803271fa9d2816601b5dee79d320a991b77484741fc119"
+    },
+    {
+      "path": "figures/main/figure_04_future_job_eligibility_sensitivity.svg",
+      "bytes": 10219,
+      "sha256": "997ea458233ba10e7946f5662dbbf69309435511a47269b6c46c8ab38d218d4f"
+    },
+    {
+      "path": "figures/main/figure_05_decision_oriented_calibration.svg",
+      "bytes": 6592,
+      "sha256": "9028a30c75e12b850cc8d7eb3372ae616f409b11c96216085060e2ebd1f5d920"
     },
     {
       "path": "protocols/careerbuilder/First5Last4/FIGURE_SOURCE_MAP.md",
@@ -626,19 +862,9 @@
       "sha256": "daa99a5cc646176b6561d3a8b6afa20c59c5f8c596b0c2a19b0e769ce844a43c"
     },
     {
-      "path": "README.md",
-      "bytes": 5073,
-      "sha256": "654ef538348485c1afeae511adecf9eeb7bfd5df426930fe243cf92bc44c9999"
-    },
-    {
-      "path": "REPRODUCIBILITY_VERIFICATION.md",
-      "bytes": 4736,
-      "sha256": "c6eaa435f36cec3a2b4a6a8046236cf77f51dcd28baf72e7e995454b43c1d89c"
-    },
-    {
-      "path": "REPRODUCIBILITY.md",
-      "bytes": 5338,
-      "sha256": "793f7b6ae6ea77b36790670ad72d64dd069b17aced42c9ba223d67504c67d6d0"
+      "path": "protocols/revision_r1/STUDY_PROTOCOL.md",
+      "bytes": 4302,
+      "sha256": "a86794a3e614f40710c2d642c18f3e6c65d9effcd43c74a0f3575f68dae86034"
     },
     {
       "path": "requirements-careerbuilder.txt",
@@ -649,11 +875,6 @@
       "path": "requirements-jth-analysis.txt",
       "bytes": 61,
       "sha256": "d98736aaa682f2d47b9ea859d4e4cb509292211bcb431759b2abacfa3902cdcc"
-    },
-    {
-      "path": "RIGHTS.md",
-      "bytes": 1403,
-      "sha256": "f4fd6569435fc8b3dbfca1828c261ac5b370869c3d4924e4afa917eed477ca00"
     }
   ]
 }

@@ -1,0 +1,57 @@
+{
+  "analysis": "CareerBuilder size-100 HitRate@20 cross-window directional consistency",
+  "scope": {
+    "protocol": "First7Last2",
+    "estimand": "design_weighted_population",
+    "metric": "HitRate@20",
+    "requested_candidate_size": 100,
+    "windows": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7
+    ],
+    "seeds": [
+      1,
+      2,
+      3,
+      4,
+      5
+    ],
+    "strategies": [
+      "uniform",
+      "popularity_weighted"
+    ],
+    "models": {
+      "bm25_full_static": "Full-text BM25",
+      "tfidf_combined_static": "Combined-profile/full-text TF-IDF",
+      "minilm_title_static": "Combined-profile/title MiniLM"
+    }
+  },
+  "interpretation_boundary": "Descriptive robustness check only. Window-by-seed cells are not treated as independent inferential units.",
+  "source": "Results/Reproducibility_Lock_2026-11-02/CareerBuilder_CurrentScript_Rerun_v1/First7Last2/per_window_results.csv",
+  "source_sha256": "65BE0D761E361AE05D239CDAA5CFCFFBBBB39862128AB8082A2151CB2C8C3032",
+  "outputs": {
+    "careerbuilder_size100_hitrate_directional_consistency_detail.csv": "A33AE57235F25BD90EA4AB72660793114524D116488005206805661F12865430",
+    "careerbuilder_size100_hitrate_directional_consistency_summary.csv": "0DC88B54677899B68DC97D9AE9454E000E629DB3C13F7C4ACF63541434BDB998"
+  },
+  "checks": {
+    "source_exists": true,
+    "expected_full_reference_cells": 21,
+    "observed_full_reference_cells": 21,
+    "expected_sampled_cells": 210,
+    "observed_sampled_cells": 210,
+    "detail_rows": 210,
+    "summary_rows": 6,
+    "duplicate_full_reference_cells": 0,
+    "duplicate_sampled_cells": 0,
+    "missing_full_reference_cells": 0,
+    "missing_sampled_cells": 0,
+    "all_210_window_seed_cells_strictly_positive": true,
+    "all_42_strategy_model_window_means_strictly_positive": true
+  },
+  "pass": true
+}

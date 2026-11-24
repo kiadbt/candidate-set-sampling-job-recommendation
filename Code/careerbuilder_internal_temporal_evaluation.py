@@ -48,6 +48,7 @@ MODELS = (
     "bm25_title_static",
     "minilm_title_static",
 )
+RRF_MODEL = "rrf_title_bm25_minilm"
 STRATEGIES = ("uniform", "popularity_weighted")
 DEFAULT_SIZES = (100, 500, 1000, 5000, 10000)
 DEFAULT_KS = (5, 10, 20, 150)
@@ -85,6 +86,21 @@ def parse_args() -> argparse.Namespace:
                    help="Select up to N audit users per activity stratum.")
     p.add_argument("--skip-semantic", action="store_true",
                    help="Engineering-only diagnostic; not valid for production.")
+    p.add_argument(
+        "--include-rrf", action="store_true",
+        help=(
+            "Add the locked post-decision title-BM25/title-MiniLM exact RRF "
+            "sensitivity. Component ranks are recomputed within each candidate set."
+        ),
+    )
+    p.add_argument(
+        "--rrf-only", action="store_true",
+        help=(
+            "Evaluate only the new RRF sensitivity while retaining its title-BM25 "
+            "and title-MiniLM components; intended for fresh sensitivity runs."
+        ),
+    )
+    p.add_argument("--rrf-constant", type=float, default=60.0)
     p.add_argument("--authoritative-production", action="store_true",
                    help="Fail closed unless the complete frozen design for --study-role is requested.")
     p.add_argument("--study-role", choices=["primary", "temporal_sensitivity"],
@@ -256,6 +272,31 @@ def top_with_deterministic_ties(
         chosen = np.concatenate((above, ties))
     order = np.lexsort((job_ids[chosen], -scores[chosen]))
     return job_ids[chosen[order]][:depth]
+
+
+def reciprocal_rank_fusion_within_candidates(
+    job_ids: np.ndarray,
+    lexical_scores: np.ndarray,
+    semantic_scores: np.ndarray,
+    output_depth: int,
+    constant: float = 60.0,
+) -> np.ndarray:
+    """Return exact deterministic RRF ranks for one declared candidate set."""
+    if constant <= 0:
+        raise ValueError("RRF constant must be positive")
+    if not (len(job_ids) == len(lexical_scores) == len(semantic_scores)):
+        raise ValueError("RRF identifiers and component scores must align")
+    lexical_order = np.lexsort((job_ids, -lexical_scores))
+    semantic_order = np.lexsort((job_ids, -semantic_scores))
+    lexical_ranks = np.empty(len(job_ids), dtype=np.int64)
+    semantic_ranks = np.empty(len(job_ids), dtype=np.int64)
+    lexical_ranks[lexical_order] = np.arange(1, len(job_ids) + 1, dtype=np.int64)
+    semantic_ranks[semantic_order] = np.arange(1, len(job_ids) + 1, dtype=np.int64)
+    fused_scores = (
+        1.0 / (constant + lexical_ranks)
+        + 1.0 / (constant + semantic_ranks)
+    )
+    return top_with_deterministic_ties(job_ids, fused_scores, output_depth)
 
 
 def metric_rows(ranked: np.ndarray, relevant: set[int], ks: tuple[int, ...]):
@@ -550,25 +591,29 @@ def prepare_models(args: argparse.Namespace, assets: dict, output_dir: Path):
     users = assets["users"]
     timing: dict[str, float] = {}
 
-    phase = time.perf_counter()
-    print(f"  W{assets['window']} fitting TF-IDF", flush=True)
-    tfidf = TfidfVectorizer(
-        lowercase=True, stop_words="english", ngram_range=(1, 2), min_df=2,
-        max_df=0.98, max_features=args.max_features, sublinear_tf=True,
-        dtype=np.float32,
-    )
-    tfidf_jobs = normalize(tfidf.fit_transform(jobs["text_all"]), copy=False).tocsr()
-    tfidf_users = normalize(tfidf.transform(users["profile_combined"]), copy=False).tocsr()
-    timing["tfidf_fit_transform"] = time.perf_counter() - phase
-    print(f"  TF-IDF ready in {timing['tfidf_fit_transform']:.1f}s", flush=True)
+    tfidf = tfidf_jobs = tfidf_users = None
+    bm25_jobs = bm25_users = None
+    bm25_meta: dict[str, object] = {"skipped_for_rrf_only": args.rrf_only}
+    if not args.rrf_only:
+        phase = time.perf_counter()
+        print(f"  W{assets['window']} fitting TF-IDF", flush=True)
+        tfidf = TfidfVectorizer(
+            lowercase=True, stop_words="english", ngram_range=(1, 2), min_df=2,
+            max_df=0.98, max_features=args.max_features, sublinear_tf=True,
+            dtype=np.float32,
+        )
+        tfidf_jobs = normalize(tfidf.fit_transform(jobs["text_all"]), copy=False).tocsr()
+        tfidf_users = normalize(tfidf.transform(users["profile_combined"]), copy=False).tocsr()
+        timing["tfidf_fit_transform"] = time.perf_counter() - phase
+        print(f"  TF-IDF ready in {timing['tfidf_fit_transform']:.1f}s", flush=True)
 
-    phase = time.perf_counter()
-    print(f"  W{assets['window']} fitting full-text BM25", flush=True)
-    bm25_jobs, bm25_users, bm25_meta = fit_bm25(
-        jobs["text_all"], users["profile_combined"], args.max_features
-    )
-    timing["bm25_full_fit_transform"] = time.perf_counter() - phase
-    print(f"  full-text BM25 ready in {timing['bm25_full_fit_transform']:.1f}s", flush=True)
+        phase = time.perf_counter()
+        print(f"  W{assets['window']} fitting full-text BM25", flush=True)
+        bm25_jobs, bm25_users, bm25_meta = fit_bm25(
+            jobs["text_all"], users["profile_combined"], args.max_features
+        )
+        timing["bm25_full_fit_transform"] = time.perf_counter() - phase
+        print(f"  full-text BM25 ready in {timing['bm25_full_fit_transform']:.1f}s", flush=True)
 
     phase = time.perf_counter()
     print(f"  W{assets['window']} fitting title BM25", flush=True)
@@ -606,14 +651,17 @@ def prepare_models(args: argparse.Namespace, assets: dict, output_dir: Path):
         print(f"  MiniLM assets ready in {timing['minilm_load_or_encode']:.1f}s", flush=True)
 
     assets.update({
-        "tfidf_jobs_t": tfidf_jobs.T.tocsr(), "tfidf_users": tfidf_users,
-        "bm25_jobs_t": bm25_jobs.T.tocsr(), "bm25_users": bm25_users,
         "bm25_title_jobs_t": bm25_title_jobs.T.tocsr(),
         "bm25_title_users": bm25_title_users,
         "job_embeddings": job_embeddings, "user_embeddings": user_embeddings,
     })
+    if not args.rrf_only:
+        assets.update({
+            "tfidf_jobs_t": tfidf_jobs.T.tocsr(), "tfidf_users": tfidf_users,
+            "bm25_jobs_t": bm25_jobs.T.tocsr(), "bm25_users": bm25_users,
+        })
     return {
-        "tfidf_vocabulary": len(tfidf.vocabulary_),
+        "tfidf_vocabulary": len(tfidf.vocabulary_) if tfidf is not None else None,
         "bm25_full": bm25_meta, "bm25_title": bm25_title_meta,
         "embeddings": embedding_meta, "phase_seconds": timing,
         "total_seconds": time.perf_counter() - started,
@@ -701,16 +749,19 @@ def candidate_indices(
 
 def score_batch(args: argparse.Namespace, assets: dict, start: int, stop: int):
     scores = {
-        "tfidf_combined_static": (
-            assets["tfidf_users"][start:stop] @ assets["tfidf_jobs_t"]
-        ).toarray(),
-        "bm25_full_static": (
-            assets["bm25_users"][start:stop] @ assets["bm25_jobs_t"]
-        ).toarray(),
         "bm25_title_static": (
             assets["bm25_title_users"][start:stop] @ assets["bm25_title_jobs_t"]
         ).toarray(),
     }
+    if not args.rrf_only:
+        scores.update({
+            "tfidf_combined_static": (
+                assets["tfidf_users"][start:stop] @ assets["tfidf_jobs_t"]
+            ).toarray(),
+            "bm25_full_static": (
+                assets["bm25_users"][start:stop] @ assets["bm25_jobs_t"]
+            ).toarray(),
+        })
     if not args.skip_semantic:
         scores["minilm_title_static"] = (
             np.asarray(assets["user_embeddings"][start:stop], dtype=np.float32)
@@ -752,21 +803,24 @@ def evaluate_user(
         "popularity_precut": assets["popularity"],
         **score_vectors,
     }
-    if args.skip_semantic:
+    if args.rrf_only:
+        model_names = ()
+    elif args.skip_semantic:
         model_names = tuple(m for m in MODELS if m != "minilm_title_static")
     else:
         model_names = MODELS
+    output_models = model_names + ((RRF_MODEL,) if args.include_rrf else ())
     rows: list[dict[str, object]] = []
 
     # Full catalog after user-specific prior-job exclusion.
     integrity["full_catalog_ranked_candidate_model_pairs"] += (
-        eligible_count * len(model_names)
+        eligible_count * len(output_models)
     )
     full_random = splitmix64_scores(eligible_ids, uid, int(assets["window"]))
+    full_valid_ks = supported_cutoffs(args.ks, eligible_count)
     for model in model_names:
         scores = full_random if model == "random_hash" else static_scores[model][eligible_idx]
         ranked = top_with_deterministic_ties(eligible_ids, scores, max_k)
-        full_valid_ks = supported_cutoffs(args.ks, eligible_count)
         for values in metric_rows(ranked, relevant, full_valid_ks):
             rows.append({
                 **common, "candidate_regime": "full_catalog",
@@ -775,6 +829,23 @@ def evaluate_user(
                 "actual_candidate_count": eligible_count,
                 "actual_candidate_fraction": 1.0,
                 "targets_injected": False, "model": model, **values,
+            })
+    if args.include_rrf:
+        ranked = reciprocal_rank_fusion_within_candidates(
+            eligible_ids,
+            static_scores["bm25_title_static"][eligible_idx],
+            static_scores["minilm_title_static"][eligible_idx],
+            max_k,
+            constant=args.rrf_constant,
+        )
+        for values in metric_rows(ranked, relevant, full_valid_ks):
+            rows.append({
+                **common, "candidate_regime": "full_catalog",
+                "sampling_strategy": "full_catalog", "seed": 0,
+                "requested_candidate_size": np.nan,
+                "actual_candidate_count": eligible_count,
+                "actual_candidate_fraction": 1.0,
+                "targets_injected": False, "model": RRF_MODEL, **values,
             })
 
     sizes = tuple(sorted(set(args.candidate_sizes)))
@@ -811,7 +882,7 @@ def evaluate_user(
                 if len(rel_idx) > nominal:
                     integrity["target_count_exceeds_nominal_user_sizes"] += 1
                 integrity["sampled_ranked_candidate_model_pairs"] += (
-                    len(candidate_ids) * len(model_names)
+                    len(candidate_ids) * len(output_models)
                 )
                 random_scores = splitmix64_scores(
                     candidate_ids, uid, int(assets["window"])
@@ -839,6 +910,23 @@ def evaluate_user(
                             "actual_candidate_fraction": len(candidate_ids) / eligible_count,
                             "targets_injected": True, "model": model, **values,
                         })
+                if args.include_rrf:
+                    ranked = reciprocal_rank_fusion_within_candidates(
+                        candidate_ids,
+                        static_scores["bm25_title_static"][candidate_idx],
+                        static_scores["minilm_title_static"][candidate_idx],
+                        max(valid_ks),
+                        constant=args.rrf_constant,
+                    )
+                    for values in metric_rows(ranked, relevant, valid_ks):
+                        rows.append({
+                            **common, "candidate_regime": "sampled",
+                            "sampling_strategy": strategy, "seed": seed,
+                            "requested_candidate_size": nominal,
+                            "actual_candidate_count": len(candidate_ids),
+                            "actual_candidate_fraction": len(candidate_ids) / eligible_count,
+                            "targets_injected": True, "model": RRF_MODEL, **values,
+                        })
     return rows
 
 
@@ -863,7 +951,11 @@ def write_checkpoint(
     started = time.perf_counter()
     integrity_before = dict(integrity)
     batch_scores = score_batch(args, assets, start, stop)
-    n_content_score_models = 3 + int(not args.skip_semantic)
+    n_content_score_models = (
+        1 + int(not args.skip_semantic)
+        if args.rrf_only
+        else 3 + int(not args.skip_semantic)
+    )
     integrity["content_full_catalog_scored_pairs"] += (
         (stop - start) * len(assets["job_ids"]) * n_content_score_models
     )
@@ -996,7 +1088,7 @@ def projected_resources(
         "basis": "linear engineering projection from one-window smoke; not an SLA",
         "audit_users_all_windows": total_users,
         "full_catalog_user_job_pairs_per_model": total_pairs,
-        "full_catalog_user_job_pairs_all_six_models": total_pairs * len(MODELS),
+        "full_catalog_user_job_pairs_all_base_models": total_pairs * len(MODELS),
         "projected_effectiveness_seconds": projected_eval_seconds,
         "projected_asset_fit_encode_seconds": projected_asset_seconds,
         "projected_total_hours": (projected_eval_seconds + projected_asset_seconds) / 3600,
@@ -1024,6 +1116,18 @@ def main() -> None:
     args.seeds = sorted(set(args.seeds))
     args.candidate_sizes = sorted(set(args.candidate_sizes))
     args.ks = sorted(set(args.ks))
+    if args.rrf_only and not args.include_rrf:
+        raise RuntimeError("--rrf-only requires --include-rrf")
+    if args.include_rrf:
+        if args.skip_semantic:
+            raise RuntimeError("RRF requires the MiniLM component")
+        if args.authoritative_production:
+            raise RuntimeError(
+                "RRF is a post-decision sensitivity and cannot be labelled "
+                "as the frozen authoritative primary run"
+            )
+        if not math.isclose(args.rrf_constant, 60.0):
+            raise RuntimeError("Fixed RRF sensitivity requires constant=60")
     output_dir = args.output_root / args.run_label
     output_dir.mkdir(parents=True, exist_ok=True)
     manifest_path = args.dataset_dir / "INTERNAL_TEMPORAL_PREPARATION_MANIFEST.json"
@@ -1108,7 +1212,24 @@ def main() -> None:
         "seeds": args.seeds, "strategies": args.strategies,
         "candidate_sizes": args.candidate_sizes, "ks": args.ks,
         "size100_k150_policy": "row excluded entirely",
-        "models": [m for m in MODELS if not (args.skip_semantic and m == "minilm_title_static")],
+        "models": (
+            [RRF_MODEL]
+            if args.rrf_only
+            else [
+                *[m for m in MODELS if not (args.skip_semantic and m == "minilm_title_static")],
+                *([RRF_MODEL] if args.include_rrf else []),
+            ]
+        ),
+        "rrf": {
+            "included": args.include_rrf,
+            "rrf_only_execution": args.rrf_only,
+            "status": "fixed post-decision sensitivity",
+            "components": ["bm25_title_static", "minilm_title_static"],
+            "retrieval_depth": "complete declared candidate set",
+            "constant": args.rrf_constant,
+            "component_ranks_recomputed_within_each_candidate_set": True,
+            "tie_break": "ascending JobID",
+        },
         "query_profile": "released static profile_combined only",
         "behavior_use": (
             "pre-cutoff applications only for popularity, candidate exclusion, and strata"
@@ -1157,6 +1278,9 @@ def main() -> None:
             "embedding_batch_size": args.embedding_batch_size,
             "smoke_users_per_activity": args.smoke_users_per_activity,
             "skip_semantic": args.skip_semantic,
+            "include_rrf": args.include_rrf,
+            "rrf_only": args.rrf_only,
+            "rrf_constant": args.rrf_constant,
             "authoritative_production": args.authoritative_production,
             "study_role": args.study_role,
         },
